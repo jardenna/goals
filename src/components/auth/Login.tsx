@@ -14,7 +14,6 @@ import {
   register,
   login,
   reset,
-  currentUser,
   selectUser,
 } from '../../features/auth/authSlice';
 
@@ -30,9 +29,6 @@ const Login: FC<PageProps> = ({ id, title }) => {
     password2: '',
   };
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(currentUser());
-  }, []);
 
   const [passwordErr, setPasswordErr] = useState('');
   const handleRegister = async () => {

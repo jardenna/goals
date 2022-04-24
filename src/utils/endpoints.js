@@ -6,4 +6,4 @@ export const logoutUrl = url + 'logout';
 export const userUrl = url + 'user';
 
 ///api/goals
-export const getGoalUrl = url + 'api/goals';
+export const goalsUrl = url + 'api/goals';

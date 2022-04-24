@@ -6,7 +6,7 @@ import { currentUser, logout } from '../../features/auth/authSlice';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   // console.log(user, isAuthenticated);
 
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const Navbar = () => {
     if (!isAuthenticated) {
       navigate('/login');
     } else {
-      navigate('/');
+      navigate('/protected');
     }
   }, [isAuthenticated]);
 

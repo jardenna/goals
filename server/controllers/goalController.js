@@ -8,6 +8,7 @@ const handleErrors = require('../utils/errors');
 const getGoals = async (req, res) => {
   try {
     const goals = await Goal.find({ user: req.user.id });
+
     res.status(200).json(goals);
   } catch (err) {
     const errors = handleErrors(err);
