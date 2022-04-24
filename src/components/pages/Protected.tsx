@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getGoals, reset } from '../../features/goals/goalSlice';
+import { getGoals, reset, selectGoals } from '../../features/goals/goalSlice';
 
 const Protected = () => {
-  const { goals, isError } = useAppSelector((state) => state.goals);
+  const { goals, isError } = useAppSelector(selectGoals);
 
   const dispatch = useAppDispatch();
   useEffect(() => {

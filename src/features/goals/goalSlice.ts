@@ -1,4 +1,4 @@
-//import { RootState } from '../../app/store';
+import { RootState } from '../../app/store';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { getGoalUrl } from '../../utils/endpoints';
@@ -24,7 +24,9 @@ export const getGoals = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetchApi('get', getGoalUrl);
-      console.log(response);
+      if (response.status) {
+        return response.status;
+      }
 
       return response;
     } catch (error: any) {
@@ -61,4 +63,5 @@ export const goalSlice = createSlice({
 });
 
 export const { reset } = goalSlice.actions;
+export const selectGoals = (state: RootState) => state.goals;
 export default goalSlice.reducer;

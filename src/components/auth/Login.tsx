@@ -15,12 +15,13 @@ import {
   login,
   reset,
   currentUser,
+  selectUser,
 } from '../../features/auth/authSlice';
 
 const Login: FC<PageProps> = ({ id, title }) => {
-  const { user, isLoading, isError, isAuthenticated } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isAuthenticated } =
+    useAppSelector(selectUser);
+  console.log(user, isError);
 
   const initialState = {
     name: '',
@@ -108,7 +109,6 @@ const Login: FC<PageProps> = ({ id, title }) => {
   ];
   const onBlur = (e: BlurEventType) => {
     const { name } = e.target;
-    console.log(name);
 
     // blur(name);
   };
