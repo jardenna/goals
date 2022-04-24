@@ -1,5 +1,7 @@
 const Goal = require('../models/GoalModel');
 
+const handleErrors = require('../utils/errors');
+
 // @desc Get goals
 // @route GET api/goals
 // @access Private
@@ -8,7 +10,8 @@ const getGoals = async (req, res) => {
     const goals = await Goal.find({ user: req.user.id });
     res.status(200).json(goals);
   } catch (err) {
-    res.status(400).json(err);
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
   }
 };
 
@@ -28,7 +31,8 @@ const setGoal = async (req, res) => {
     }
     res.status(200).json(goal);
   } catch (err) {
-    res.status(400).json(err);
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
   }
 };
 
@@ -49,7 +53,8 @@ const updateGoal = async (req, res) => {
     });
     res.status(200).json(updatedGoal);
   } catch (err) {
-    res.status(400).json(err);
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
   }
 };
 
@@ -68,7 +73,9 @@ const deleteGoal = async (req, res) => {
     await goal.remove();
     res.status(200).json(goalId);
   } catch (err) {
-    res.status(401).json('The goal was not found');
+    //res.status(401).json('The goal was not found');
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
   }
 };
 

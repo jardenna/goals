@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+
 import Form from '../common/FormElements/Form';
 import useFormValidation from '../../hooks/useFormValidation';
 
@@ -7,7 +9,7 @@ import { BlurEventType } from '../../interfaces/events';
 import { PageProps } from '../../interfaces/interfaces';
 import { InputListProps } from '../../interfaces/form';
 import { PageId } from '../../types/types';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+
 import {
   register,
   login,

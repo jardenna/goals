@@ -7,7 +7,7 @@ import { currentUser, logout } from '../../features/auth/authSlice';
 const Navbar = () => {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   let navigate = useNavigate();
-  console.log(user, isAuthenticated);
+  // console.log(user, isAuthenticated);
 
   const dispatch = useAppDispatch();
   useEffect(() => {

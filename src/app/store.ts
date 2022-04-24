@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+//import logger from 'redux-logger';
 
 //MIDDLEWARE
 const localStorageMiddleware = ({ getState }: any) => {
@@ -11,17 +11,19 @@ const localStorageMiddleware = ({ getState }: any) => {
 };
 
 import posts from '../features/posts/postSlice';
+import goals from '../features/goals/goalSlice';
 import authReducer from '../features/auth/authSlice';
 
 const reducer = {
   posts,
+  goals,
   auth: authReducer,
 };
 
 export const store = configureStore({
   reducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger).concat(localStorageMiddleware),
+    getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

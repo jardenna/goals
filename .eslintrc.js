@@ -32,7 +32,7 @@ module.exports = {
     'no-undef': 1,
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
-      'error',
+      'warn',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
     ],
     'no-warning-comments': [
