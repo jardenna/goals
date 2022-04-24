@@ -24,9 +24,6 @@ export const getGoals = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetchApi('get', getGoalUrl);
-      if (response.status) {
-        return response.status;
-      }
 
       return response;
     } catch (error: any) {

@@ -1,23 +1,28 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getGoals, reset, selectGoals } from '../../features/goals/goalSlice';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 const Protected = () => {
   const { goals, isError } = useAppSelector(selectGoals);
 
+  const user = useCurrentUser();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (isError) {
-      console.log('message');
-    }
+    // if (isError) {
+    //   console.log(goals);
+    // }
 
-    dispatch(getGoals());
+    if (user.isAuthenticated) {
+      dispatch(getGoals());
+    } else {
+      console.log(isError);
+    }
 
     return () => {
       dispatch(reset());
     };
   }, [isError, dispatch]);
-  console.log(goals);
 
   return <div>Protected</div>;
 };
