@@ -14,4 +14,11 @@ const errorObj = {
   noUser: '',
 };
 
+export interface GoalErrorState {
+  text: string;
+}
+export const goalErrObj = {
+  text: '',
+};
+
 export default errorObj;

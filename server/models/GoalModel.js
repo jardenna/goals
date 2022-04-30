@@ -8,10 +8,12 @@ const goalSchema = mongoose.Schema(
     },
     text: {
       type: String,
-      required: [true, 'Please enter a text'],
+      required: [true, 'noGoal'],
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Goal', goalSchema);
+const Goal = mongoose.model('Goal', goalSchema);
+
+module.exports = Goal;

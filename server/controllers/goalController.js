@@ -1,6 +1,6 @@
 const Goal = require('../models/GoalModel');
 
-const handleErrors = require('../utils/errors');
+const handleGoalErrors = require('../errorHandlers/goalErrors');
 
 // @desc Get goals
 // @route GET api/goals
@@ -11,7 +11,7 @@ const getGoals = async (req, res) => {
 
     res.status(200).json(goals);
   } catch (err) {
-    const errors = handleErrors(err);
+    const errors = handleGoalErrors(err);
     res.status(400).json({ errors });
   }
 };
@@ -26,13 +26,9 @@ const setGoal = async (req, res) => {
       user: req.user.id,
     });
 
-    if (!req.body.text) {
-      res.status(400);
-      throw new Error('Please set a text');
-    }
     res.status(200).json(goal);
   } catch (err) {
-    const errors = handleErrors(err);
+    const errors = handleGoalErrors(err);
     res.status(400).json({ errors });
   }
 };
@@ -54,7 +50,7 @@ const updateGoal = async (req, res) => {
     });
     res.status(200).json(updatedGoal);
   } catch (err) {
-    const errors = handleErrors(err);
+    const errors = handleGoalErrors(err);
     res.status(400).json({ errors });
   }
 };
@@ -75,7 +71,7 @@ const deleteGoal = async (req, res) => {
     res.status(200).json(goalId);
   } catch (err) {
     //res.status(401).json('The goal was not found');
-    const errors = handleErrors(err);
+    const errors = handleGoalErrors(err);
     res.status(400).json({ errors });
   }
 };

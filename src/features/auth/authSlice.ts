@@ -4,21 +4,21 @@ import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
 import { KeyValuePair } from '../../interfaces/interfaces';
 
-import errorObj, { ErrorObjState } from '../../utils/utils';
+import goalErrObj, { ErrorObjState, GoalErrorState } from '../../utils/utils';
 //import { current } from 'immer';
 
 interface UsersState {
   isAuthenticated: boolean;
-  user: ErrorObjState | null;
+  user: any;
   isLoading: boolean;
-  isError: ErrorObjState;
+  isError: any;
 }
 const initialState = {
   isAuthenticated: false,
   isLoading: false,
   user: null,
   bluredError: '',
-  isError: errorObj,
+  isError: goalErrObj,
 } as UsersState;
 
 //Register user
@@ -61,7 +61,7 @@ export const authSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isLoading = false;
-      state.isError = errorObj;
+      state.isError = goalErrObj;
     },
   },
   extraReducers: (builder) => {
@@ -77,7 +77,7 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state) => {
         state.isAuthenticated = false;
-        state.isError = errorObj;
+        state.isError = goalErrObj;
         state.user = null;
       })
       .addCase(login.pending, (state) => {
@@ -92,7 +92,7 @@ export const authSlice = createSlice({
       .addCase(login.rejected, (state) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.isError = errorObj;
+        state.isError = goalErrObj;
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
@@ -109,7 +109,7 @@ export const authSlice = createSlice({
       .addCase(currentUser.rejected, (state) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.isError = errorObj;
+        state.isError = goalErrObj;
       });
   },
 });

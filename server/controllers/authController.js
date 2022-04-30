@@ -1,7 +1,7 @@
 const User = require('../models/UserModel');
 const { sign } = require('jsonwebtoken');
 
-const handleErrors = require('../utils/errors');
+const handleErrors = require('../errorHandlers/authErrors');
 
 const secret = process.env.ACCESS_TOKEN_SECRET;
 

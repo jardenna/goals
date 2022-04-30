@@ -29,7 +29,7 @@ const Protected = () => {
       dispatch(reset());
     };
   }, [isError, dispatch]);
-
+  console.log(isError);
   const handleSubmitGoals = () => {
     if (user.isAuthenticated) {
       dispatch(createGoals(values));

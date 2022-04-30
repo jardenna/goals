@@ -31,10 +31,9 @@ export const getGoals = createAsyncThunk(
     const token: any = thunkAPI.getState();
     try {
       const response = await fetchApi('get', goalsUrl);
-      // if (token.auth.isAuthenticated) {
-      //   return response;
-      // }
-      return response;
+      if (token.auth.isAuthenticated) {
+        return response;
+      }
     } catch (error: any) {
       const message = error?.response?.message;
       return thunkAPI.rejectWithValue(message);
