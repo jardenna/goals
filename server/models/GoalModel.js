@@ -14,6 +14,15 @@ const goalSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+//Static method to add a goal
+goalSchema.statics.login = async function (text) {
+  if (text === '') {
+    throw Error('noGoal');
+  }
+
+  throw Error('noUser');
+};
+
 const Goal = mongoose.model('Goal', goalSchema);
 
 module.exports = Goal;

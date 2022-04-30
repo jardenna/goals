@@ -28,6 +28,7 @@ const setGoal = async (req, res) => {
 
     res.status(200).json(goal);
   } catch (err) {
+    //console.log(err.errors.text);
     const errors = handleGoalErrors(err);
     res.status(400).json({ errors });
   }

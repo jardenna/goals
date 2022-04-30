@@ -3,35 +3,30 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
 import { KeyValuePair } from '../../interfaces/interfaces';
+import errorObj, { ErrorObjState } from '../../utils/utils';
 
-import goalErrObj, { ErrorObjState, GoalErrorState } from '../../utils/utils';
 //import { current } from 'immer';
 
 interface UsersState {
   isAuthenticated: boolean;
   user: any;
   isLoading: boolean;
-  isError: any;
+  isError: ErrorObjState;
 }
 const initialState = {
   isAuthenticated: false,
   isLoading: false,
   user: null,
   bluredError: '',
-  isError: goalErrObj,
+  isError: errorObj,
 } as UsersState;
 
 //Register user
 export const register = createAsyncThunk(
   'auth/register',
-  async (user: KeyValuePair<string>, thunkAPI) => {
-    try {
-      const response = await fetchApi('post', signupUrl, user);
-      return response;
-    } catch (error: any) {
-      const message = error?.response?.message;
-      return thunkAPI.rejectWithValue(message);
-    }
+  async (user: KeyValuePair<string>) => {
+    const response = await fetchApi('post', signupUrl, user);
+    return response;
   }
 );
 
@@ -61,7 +56,7 @@ export const authSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isLoading = false;
-      state.isError = goalErrObj;
+      state.isError = errorObj;
     },
   },
   extraReducers: (builder) => {
@@ -75,11 +70,6 @@ export const authSlice = createSlice({
         state.isAuthenticated = action.payload?.user?._id ? true : false;
         state.isError = action.payload.errors;
       })
-      .addCase(register.rejected, (state) => {
-        state.isAuthenticated = false;
-        state.isError = goalErrObj;
-        state.user = null;
-      })
       .addCase(login.pending, (state) => {
         state.isLoading = true;
       })
@@ -89,11 +79,7 @@ export const authSlice = createSlice({
         state.isAuthenticated = action.payload?.user?._id ? true : false;
         state.isError = action.payload.errors;
       })
-      .addCase(login.rejected, (state) => {
-        state.isLoading = false;
-        state.isAuthenticated = false;
-        state.isError = goalErrObj;
-      })
+
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
         state.isAuthenticated = false;
@@ -105,11 +91,6 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload;
         state.isAuthenticated = action.payload.status ? false : true;
-      })
-      .addCase(currentUser.rejected, (state) => {
-        state.isLoading = false;
-        state.isAuthenticated = false;
-        state.isError = goalErrObj;
       });
   },
 });

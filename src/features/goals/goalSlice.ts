@@ -3,23 +3,22 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { goalsUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
-import errorObj, { ErrorObjState } from '../../utils/utils';
+import { GoalErrorState, goalErrObj } from '../../utils/utils';
 import { KeyValuePair } from '../../interfaces/interfaces';
 
-interface goalsArr {
-  id: string;
+interface goals {
+  _id: string;
   text: string;
-  status?: string;
 }
 interface GoalsState {
-  goals: goalsArr[];
+  goals: goals[];
   isLoading: boolean;
-  isError: ErrorObjState | unknown;
+  isError: GoalErrorState;
 }
 
 const initialState = {
   goals: [],
-  isError: errorObj,
+  isError: goalErrObj,
   isLoading: false,
 } as GoalsState;
 
@@ -28,15 +27,10 @@ const initialState = {
 export const getGoals = createAsyncThunk(
   'goals/getGoals',
   async (_, thunkAPI) => {
-    const token: any = thunkAPI.getState();
-    try {
-      const response = await fetchApi('get', goalsUrl);
-      if (token.auth.isAuthenticated) {
-        return response;
-      }
-    } catch (error: any) {
-      const message = error?.response?.message;
-      return thunkAPI.rejectWithValue(message);
+    const token = thunkAPI.getState() as RootState;
+    const response = await fetchApi('get', goalsUrl);
+    if (token.auth.isAuthenticated) {
+      return response;
     }
   }
 );
@@ -44,15 +38,11 @@ export const getGoals = createAsyncThunk(
 export const createGoals = createAsyncThunk(
   'goals/createGoals',
   async (goals: KeyValuePair<string>, thunkAPI) => {
-    try {
-      const token: any = thunkAPI.getState();
-      const response = await fetchApi('post', goalsUrl, goals);
+    const token = thunkAPI.getState() as RootState;
+    const response = await fetchApi('post', goalsUrl, goals);
 
-      if (token.auth.isAuthenticated) {
-        return response;
-      }
-    } catch (error) {
-      console.log(error);
+    if (token.auth.isAuthenticated) {
+      return response;
     }
   }
 );
@@ -63,7 +53,7 @@ export const goalSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.isLoading = false;
-      state.isError = errorObj;
+      state.isError = goalErrObj;
       state.goals = [];
     },
   },
@@ -76,22 +66,14 @@ export const goalSlice = createSlice({
         state.isLoading = false;
         state.goals = action.payload;
       })
-      .addCase(getGoals.rejected, (state) => {
-        state.isLoading = false;
-        state.goals = [];
-        state.isError = errorObj;
-      })
+
       .addCase(createGoals.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(createGoals.fulfilled, (state, action) => {
         state.isLoading = false;
         state.goals = [action.payload, ...state.goals];
-      })
-      .addCase(createGoals.rejected, (state, action) => {
-        state.goals = [];
-        state.isLoading = false;
-        state.isError = action.payload;
+        state.isError = action.payload.errors;
       });
   },
 });

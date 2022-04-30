@@ -1,8 +1,8 @@
 const handleGoalErrors = (err) => {
   let errors = { text: '' };
 
-  if (err.message === 'noGoal') {
-    errors.password = 'Please fill out the goal field';
+  if (err.errors.text.message === 'noGoal') {
+    errors.text = 'Please fill out the goal field';
   }
 
   return errors;

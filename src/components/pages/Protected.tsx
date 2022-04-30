@@ -21,20 +21,15 @@ const Protected = () => {
   useEffect(() => {
     if (user.isAuthenticated) {
       dispatch(getGoals());
-    } else {
-      console.log(isError);
     }
-
     return () => {
       dispatch(reset());
     };
   }, [isError, dispatch]);
-  console.log(isError);
+  console.log(goals);
   const handleSubmitGoals = () => {
     if (user.isAuthenticated) {
       dispatch(createGoals(values));
-    } else {
-      console.log(isError);
     }
   };
   const initialValues = { text: '' };
@@ -65,7 +60,7 @@ const Protected = () => {
       />
 
       <div>
-        {goals.map((goal: any) => (
+        {goals.map((goal) => (
           <div key={goal._id}>{goal.text} </div>
         ))}
       </div>

@@ -20,7 +20,7 @@ import {
 const Login: FC<PageProps> = ({ id, title }) => {
   const { user, isLoading, isError, isAuthenticated } =
     useAppSelector(selectUser);
-  console.log(user, isError);
+  console.log(isError);
 
   const initialState = {
     name: '',
