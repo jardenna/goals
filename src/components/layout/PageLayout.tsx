@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import { PageId } from '../../types/types';
 import Login from '../pages/AuthPage';
-import Home from '../pages/Home';
+
+import PageNotFound from '../pages/PageNotFound';
 import Protected from '../pages/Protected';
 import PrivateRoute from '../routes/PrivateRoute';
 import Header from './Header';
@@ -14,7 +15,6 @@ const PageLayout: FC = () => {
       <Header />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home id="home" title="home" />} />
           <Route element={<PrivateRoute />}>
             <Route path="/protected" element={<Protected />} />
           </Route>
@@ -27,6 +27,7 @@ const PageLayout: FC = () => {
             path="/login"
             element={<Login id={PageId.Login} title="Login" />}
           />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </div>
     </>

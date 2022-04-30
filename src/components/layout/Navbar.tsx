@@ -1,28 +1,19 @@
 import { useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch } from '../../app/hooks';
 import { currentUser, logout } from '../../features/auth/authSlice';
 import useAuth from '../../hooks/useAuth';
 const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(currentUser());
   }, []);
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login');
-    } else {
-      navigate('/protected');
-    }
-  }, [isAuthenticated]);
 
   const guestLinks = (
     <>
-      <li className="nav-item flex-item">Welcome {user && user.name}</li>
       <li className="nav-item flex-item">
         <NavLink className="nav-item flex-item" to="/login">
           Login
@@ -40,7 +31,11 @@ const Navbar = () => {
   };
   const authLinks = (
     <>
+      <li className="nav-item flex-item">Welcome {user && user.name}</li>
       <li className="nav-item flex-item">
+        <li className="nav-item flex-item">
+          <NavLink to="/protected">Protected</NavLink>
+        </li>
         <button className="btn-primary" onClick={logoutUser}>
           Logout
         </button>
@@ -51,13 +46,6 @@ const Navbar = () => {
   return (
     <nav className="main-nav flex-item">
       <ul className="nav-wrapper flex-container">
-        <li className="nav-item flex-item">
-          <NavLink to="/">Home</NavLink>
-        </li>
-
-        <li className="nav-item flex-item">
-          <NavLink to="/protected">Protected</NavLink>
-        </li>
         {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </nav>
