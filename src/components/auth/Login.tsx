@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 
 import Form from '../common/FormElements/Form';
 import useFormValidation from '../../hooks/useFormValidation';
@@ -10,17 +10,11 @@ import { PageProps } from '../../interfaces/interfaces';
 import { InputListProps } from '../../interfaces/form';
 import { PageId } from '../../types/types';
 
-import {
-  register,
-  login,
-  reset,
-  selectUser,
-} from '../../features/auth/authSlice';
+import { register, login, reset } from '../../features/auth/authSlice';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 const Login: FC<PageProps> = ({ id, title }) => {
-  const { user, isLoading, isError, isAuthenticated } =
-    useAppSelector(selectUser);
-
+  const { user, isLoading, isError, isAuthenticated } = useCurrentUser();
   const initialState = {
     name: '',
     email: '',
@@ -66,7 +60,7 @@ const Login: FC<PageProps> = ({ id, title }) => {
       label: 'Name',
       isRequired: true,
       value: name,
-      error: isError && isError.name,
+      error: 'isError && isError.name',
       hidden: id === PageId.Login,
     },
     {
