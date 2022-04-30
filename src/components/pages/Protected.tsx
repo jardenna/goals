@@ -9,7 +9,6 @@ import {
 import useCurrentUser from '../../hooks/useCurrentUser';
 import useFormValidation from '../../hooks/useFormValidation';
 import { InputListProps } from '../../interfaces/form';
-import { validateUpdate } from '../../utils/validate';
 import Form from '../common/FormElements/Form';
 
 const Protected = () => {
