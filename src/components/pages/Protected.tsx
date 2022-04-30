@@ -6,7 +6,7 @@ import {
   reset,
   selectGoals,
 } from '../../features/goals/goalSlice';
-import useCurrentUser from '../../hooks/useCurrentUser';
+import useAuth from '../../hooks/useAuth';
 import useFormValidation from '../../hooks/useFormValidation';
 import { InputListProps } from '../../interfaces/form';
 import Form from '../common/FormElements/Form';
@@ -18,7 +18,7 @@ const Protected = () => {
 
   const [errorText, setErrorText] = useState(initialErrorText);
 
-  const user = useCurrentUser();
+  const user = useAuth();
 
   const dispatch = useAppDispatch();
 

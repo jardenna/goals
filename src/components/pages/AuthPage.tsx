@@ -11,10 +11,10 @@ import { InputListProps } from '../../interfaces/form';
 import { PageId } from '../../types/types';
 
 import { register, login, reset } from '../../features/auth/authSlice';
-import useCurrentUser from '../../hooks/useCurrentUser';
+import useAuth from '../../hooks/useAuth';
 
-const Login: FC<PageProps> = ({ id, title }) => {
-  const { user, isLoading, isError, isAuthenticated } = useCurrentUser();
+const AuthPage: FC<PageProps> = ({ id, title }) => {
+  const { user, isLoading, isError, isAuthenticated } = useAuth();
   const initialState = {
     name: '',
     email: '',
@@ -60,7 +60,7 @@ const Login: FC<PageProps> = ({ id, title }) => {
       label: 'Name',
       isRequired: true,
       value: name,
-      error: 'isError && isError.name',
+      error: isError && isError.name,
       hidden: id === PageId.Login,
     },
     {
@@ -120,4 +120,4 @@ const Login: FC<PageProps> = ({ id, title }) => {
   );
 };
 
-export default Login;
+export default AuthPage;

@@ -1,15 +1,13 @@
 import { FC } from 'react';
-import Posts from '../../features/posts/Posts';
 
 interface HomeProps {
+  title: string;
   id: string;
 }
-const Home: FC<HomeProps> = ({ id }) => {
+const Home: FC<HomeProps> = ({ id, title }) => {
   return (
     <article>
-      <section>
-        <Posts />
-      </section>
+      <section>hello</section>
     </article>
   );
 };

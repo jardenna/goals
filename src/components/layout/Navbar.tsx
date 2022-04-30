@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { currentUser, logout } from '../../features/auth/authSlice';
-
+import useAuth from '../../hooks/useAuth';
 const Navbar = () => {
-  const { user, isAuthenticated } = useAppSelector((state) => state.auth);
+  const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  // console.log(user, isAuthenticated);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
