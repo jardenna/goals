@@ -25,8 +25,8 @@ const Protected = () => {
     return () => {
       dispatch(reset());
     };
-  }, [isError, dispatch]);
-  console.log(goals);
+  }, [dispatch]);
+
   const handleSubmitGoals = () => {
     if (user.isAuthenticated) {
       dispatch(createGoals(values));
@@ -45,6 +45,7 @@ const Protected = () => {
       label: 'Title',
       isRequired: true,
       value: values.text,
+      error: isError && isError.text,
     },
   ];
 
