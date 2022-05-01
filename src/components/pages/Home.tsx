@@ -1,6 +1,12 @@
 import { FC } from 'react';
-interface HomeProps {}
-const Home: FC<HomeProps> = () => {
-  return <div>ff</div>;
-};
+
+interface HomeProps {
+  id: string;
+  title: string;
+}
+const Home: FC<HomeProps> = ({ id, title }) => (
+  <article>
+    <h1>{title}</h1>
+  </article>
+);
 export default Home;

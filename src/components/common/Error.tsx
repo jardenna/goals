@@ -1,11 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 
-function Error() {
-   return (
-      <div>
-         Error
-      </div>
-   );
+interface ErrorProps {
+  text: string;
 }
+
+const Error: FC<ErrorProps> = ({ text }) => <div>{text}</div>;
 
 export default Error;

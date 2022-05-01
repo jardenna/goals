@@ -115,7 +115,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   };
 
   return (
-    <>
+    <article>
       <h1>{title}</h1>
 
       {isError?.noUser}
@@ -128,7 +128,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
         onBlur={onBlur}
         showResetButton
       />
-    </>
+    </article>
   );
 };
 

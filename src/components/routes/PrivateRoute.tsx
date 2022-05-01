@@ -8,7 +8,7 @@ const PrivateRoute: FC = () => {
   return isAuthenticated ? (
     <Outlet />
   ) : (
-    <Navigate to="/" state={{ from: location }} replace />
+    <Navigate to="/login" state={{ from: location }} replace />
   );
 };
 export default PrivateRoute;

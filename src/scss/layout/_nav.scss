@@ -38,10 +38,10 @@ $burgerColorActive: $color-gray-dark;
     font-size: 14px;
     margin-right: 10px;
     display: inline-block;
-
-    &.active {
-      a {
-        color: $color-blue-dark;
+    a {
+      color: $color-blue-dark;
+      &.active {
+        color: red;
       }
     }
 

@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { InputProps } from '../../../interfaces/form';
 
 import Label from './Label';
+import Error from '../../common/Error';
 
 const Input: FC<InputProps> = ({
   type,
-
   name,
   inputIdentifier,
   placeholder,
@@ -38,7 +38,7 @@ const Input: FC<InputProps> = ({
         label={label || ''}
       />
 
-      {error && <span className="error">{error}</span>}
+      {error && <Error text={error} />}
     </div>
   );
 };
