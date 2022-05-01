@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { useAppDispatch } from '../../app/hooks';
 import { currentUser, logout } from '../../features/auth/authSlice';
 import useAuth from '../../hooks/useAuth';
 const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
-
+  const location = useLocation();
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(currentUser());
@@ -15,10 +15,10 @@ const Navbar = () => {
   const guestLinks = (
     <>
       <li className="nav-item flex-item">
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </li>
       <li className="nav-item flex-item">
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </li>
     </>
   );
@@ -30,11 +30,13 @@ const Navbar = () => {
       <li className="nav-item flex-item">Welcome {user && user.name}</li>
 
       <li className="nav-item flex-item">
-        <NavLink to="/protected">Protected</NavLink>
+        <NavLink to="/protected" state={{ from: location }}>
+          Protected
+        </NavLink>
       </li>
-      <button className="btn-primary" onClick={logoutUser}>
+      <li className="nav-item flex-item" onClick={logoutUser}>
         Logout
-      </button>
+      </li>
     </>
   );
 

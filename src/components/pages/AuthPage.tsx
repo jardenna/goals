@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../app/hooks';
 
@@ -13,6 +14,12 @@ import { PageId } from '../../types/types';
 import { register, login, reset } from '../../features/auth/authSlice';
 import useAuth from '../../hooks/useAuth';
 
+type LocationProps = {
+  state: {
+    from: Location;
+  };
+};
+
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { user, isLoading, isError, isAuthenticated } = useAuth();
   const initialState = {
@@ -22,7 +29,8 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
     password2: '',
   };
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
+  const location = useLocation() as LocationProps;
   const [passwordErr, setPasswordErr] = useState('');
   const handleRegister = async () => {
     const equalPasswords = password === password2;
@@ -39,6 +47,10 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
 
   const handleLogin = () => {
     dispatch(login(values));
+
+    if (location?.state?.from) {
+      navigate(location.state.from);
+    }
   };
 
   const isLoginPage = id === PageId.Login;
