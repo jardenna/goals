@@ -11,23 +11,20 @@ const TextArea: FC<InputProps> = ({
   label,
   isRequired,
   error,
-}) => {
-  return (
-    <div className="input-wrapper">
-      <textarea
-        name={name}
-        id={inputIdentifier}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value !== null ? value : ''}
-      />
-      <label className={value !== '' ? 'top' : ''} htmlFor={inputIdentifier}>
-        {label}
-        {isRequired && '*'}
-      </label>
-      {error}
-    </div>
-  );
-};
-
+}) => (
+  <div className="input-wrapper">
+    <textarea
+      name={name}
+      id={inputIdentifier}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value !== null ? value : ''}
+    />
+    <label className={value !== '' ? 'top' : ''} htmlFor={inputIdentifier}>
+      {label}
+      {isRequired && '*'}
+    </label>
+    {error}
+  </div>
+);
 export default TextArea;

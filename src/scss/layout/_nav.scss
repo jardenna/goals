@@ -1,5 +1,5 @@
-$burgerColor: $color-gray-light;
-$burgerColorActive: $color-gray-dark;
+$burgerColor: $color-gray;
+$burgerColorActive: $color-primary;
 
 .sticky {
   position: sticky;
@@ -13,6 +13,7 @@ $burgerColorActive: $color-gray-dark;
   &.main-nav {
     @include mQ($small) {
       right: 0;
+      background-color: rgba(245, 246, 246, 0.9);
     }
   }
 }
@@ -31,7 +32,6 @@ $burgerColorActive: $color-gray-dark;
     width: 200px;
     height: 100%;
     z-index: 20;
-    background-color: $color-background-primary;
   }
 
   .nav-item {
@@ -39,9 +39,10 @@ $burgerColorActive: $color-gray-dark;
     margin-right: 10px;
     display: inline-block;
     a {
-      color: $color-blue-dark;
+      color: $color-primary-link;
       &.active {
-        color: red;
+        color: $color-primary-link-hover;
+        text-decoration: underline;
       }
     }
 

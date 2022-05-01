@@ -3,14 +3,24 @@
   background-size: cover;
   background-position: center;
   min-height: 350px;
+  @include mQ($small) {
+    background-position: bottom;
+    min-height: 170px;
+  }
 
   &.flex {
     justify-content: center;
   }
 
   .hero-link {
-    border: 1px solid black;
+    border: 1px solid $color-primary;
     padding: 20px;
+    &:hover {
+      text-decoration: none;
+    }
+    @include mQ($small) {
+      display: none;
+    }
   }
 }
 .main-container {

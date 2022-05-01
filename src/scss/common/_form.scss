@@ -15,7 +15,7 @@ form {
 
   .input-error {
     border-left: 5px solid $color-danger;
-    background-color: $color-gray-lighter;
+    background-color: $color-gray-light;
 
     & ~ label {
       top: -8px;
@@ -57,16 +57,16 @@ textarea {
   width: 100%;
   padding: 9px;
   border: none;
-  border-bottom: 1px solid $color-gray-dark;
+  border-bottom: 1px solid $color-primary;
   background: none;
   background-color: $color-white;
   margin: 25px 0;
-  color: $color-gray-dark;
+  color: $color-primary;
   outline: none;
   font-family: $font-secondary;
 
   &:focus {
-    background-color: $color-gray-lighter;
+    background-color: $color-gray-light;
   }
 
   &:focus ~ label {

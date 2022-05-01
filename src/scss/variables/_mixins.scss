@@ -36,7 +36,7 @@
   }
 }
 
-@mixin chevron($size: 7px, $weight: 1px, $color: $color-gray-dark, $dir: up) {
+@mixin chevron($size: 7px, $weight: 1px, $color: $color-primary, $dir: up) {
   width: $size;
   height: $size;
   border: $weight solid $color;

@@ -17,30 +17,28 @@ const Input: FC<InputProps> = ({
   error,
   onBlur,
   checked,
-}) => {
-  return (
-    <div className="input-wrapper">
-      <input
-        type={type || 'text'}
-        name={name}
-        value={value !== null ? value : ''}
-        id={inputIdentifier}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        className={error ? 'input-error' : ''}
-        checked={checked}
-      />
-      <Label
-        className={value && value !== '' ? 'top' : ''}
-        htmlFor={'inputIdentifier'}
-        isRequired={isRequired}
-        label={label || ''}
-      />
+}) => (
+  <div className="input-wrapper">
+    <input
+      type={type || 'text'}
+      name={name}
+      value={value !== null ? value : ''}
+      id={inputIdentifier}
+      placeholder={placeholder}
+      onChange={onChange}
+      onBlur={onBlur}
+      className={error ? 'input-error' : ''}
+      checked={checked}
+    />
+    <Label
+      className={value && value !== '' ? 'top' : ''}
+      htmlFor={'inputIdentifier'}
+      isRequired={isRequired}
+      label={label || ''}
+    />
 
-      {error && <Error text={error} />}
-    </div>
-  );
-};
+    {error && <Error text={error} />}
+  </div>
+);
 
 export default Input;

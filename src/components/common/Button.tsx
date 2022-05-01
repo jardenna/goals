@@ -8,16 +8,14 @@ interface IButtons {
   btnText?: string | number;
 }
 
-const Button: FC<IButtons> = (props) => {
-  return (
-    <button
-      type={props.type}
-      id={props.id}
-      className={props.className}
-      onClick={props.onClick}
-    >
-      {props.btnText}
-    </button>
-  );
-};
+const Button: FC<IButtons> = (props) => (
+  <button
+    type={props.type}
+    id={props.id}
+    className={props.className}
+    onClick={props.onClick}
+  >
+    {props.btnText}
+  </button>
+);
 export default Button;
