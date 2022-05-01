@@ -1,6 +1,5 @@
 a[class^='btn-'],
 button {
-
   @include mQ($small) {
     min-width: 140px;
   }
@@ -16,7 +15,6 @@ button {
   display: inline-block;
   @include transition();
   position: relative;
-
 
   &:focus {
     border: var(--focus);
@@ -35,7 +33,6 @@ button.details-btn:last-child {
   margin-right: 10px;
 }
 
-
 a.btn-primary {
   text-decoration: none;
   text-align: center;
@@ -47,26 +44,21 @@ a.btn-primary {
   }
 }
 
-
 .btn-primary {
   background-color: $color-primary-btn;
 
   &:hover {
     background-color: $color-primary-btn-hover;
-
   }
 }
 
 .btn-danger {
   background-color: $color-danger;
 
-
   &:hover {
     background-color: $color-red-light;
-
   }
 }
-
 
 .btn-rounded {
   background-color: $color-primary-btn;
@@ -74,7 +66,6 @@ a.btn-primary {
   height: 20px;
   border-radius: 50%;
   display: inline-block;
-
 
   &:hover {
     background-color: $color-primary-btn-hover;

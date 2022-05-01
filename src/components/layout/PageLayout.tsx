@@ -8,12 +8,14 @@ import PageNotFound from '../pages/PageNotFound';
 import Protected from '../pages/Protected';
 import PrivateRoute from '../routes/PrivateRoute';
 import Header from './Header';
+import Hero from './Hero';
 
 const PageLayout: FC = () => {
   return (
-    <>
+    <article className="main-container flex">
       <Header />
-      <div className="container">
+      <Hero />
+      <main className="flex-grow-1 container">
         <Routes>
           <Route element={<PrivateRoute />}>
             <Route path="/protected" element={<Protected />} />
@@ -27,10 +29,13 @@ const PageLayout: FC = () => {
             path="/login"
             element={<Login id={PageId.Login} title="Login" />}
           />
-          <Route path="/*" element={<PageNotFound />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </div>
-    </>
+      </main>
+      <footer className="main-footer">
+        <section className="container">Footer</section>
+      </footer>
+    </article>
   );
 };
 export default PageLayout;

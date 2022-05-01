@@ -15,14 +15,10 @@ const Navbar = () => {
   const guestLinks = (
     <>
       <li className="nav-item flex-item">
-        <NavLink className="nav-item flex-item" to="/login">
-          Login
-        </NavLink>
+        <NavLink to="/login">Login</NavLink>
       </li>
       <li className="nav-item flex-item">
-        <NavLink className="nav-item flex-item" to="/register">
-          Register
-        </NavLink>
+        <NavLink to="/register">Register</NavLink>
       </li>
     </>
   );
@@ -32,20 +28,19 @@ const Navbar = () => {
   const authLinks = (
     <>
       <li className="nav-item flex-item">Welcome {user && user.name}</li>
+
       <li className="nav-item flex-item">
-        <li className="nav-item flex-item">
-          <NavLink to="/protected">Protected</NavLink>
-        </li>
-        <button className="btn-primary" onClick={logoutUser}>
-          Logout
-        </button>
+        <NavLink to="/protected">Protected</NavLink>
       </li>
+      <button className="btn-primary" onClick={logoutUser}>
+        Logout
+      </button>
     </>
   );
 
   return (
     <nav className="main-nav flex-item">
-      <ul className="nav-wrapper flex-container">
+      <ul className="nav-container">
         {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </nav>

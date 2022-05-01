@@ -1,17 +1,11 @@
-.main-header {
-   background-color: $color-gray-lighter;
-   min-height: 48px;
-
-}
-
 .logo {
-   position: absolute;
-   top: 17px;
+  font-size: 60px;
 
-   a {
-      display: block;
-   }
+  text-transform: uppercase;
 
-
-
+  font-family: $font-logo;
+  .rotate {
+    transform: scale(-1, 1);
+    display: inline-block;
+  }
 }

@@ -1,11 +1,16 @@
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
-  <header className="main-header">
-    <section className="flex-container container">
-      <h1 className="flex-item">LOGO</h1>
+  <header className="flex">
+    <div className="container flex">
+      <div className="logo">
+        <Link to="/login">
+          <span className="rotate">g</span>
+        </Link>
+      </div>
       <Navbar />
-    </section>
+    </div>
   </header>
 );
 

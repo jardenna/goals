@@ -80,10 +80,15 @@
   width: $width;
 }
 
-@mixin flexbox($wrap: wrap) {
+@mixin flexbox(
+  $wrap: wrap,
+  $justify-content: flex-start,
+  $flex-direction: column
+) {
   display: flex;
   flex-wrap: $wrap;
-  justify-content: flex-end;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
 
   @include mQ($small) {
     display: block;
@@ -111,15 +116,4 @@
 
 @mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
   transition: $what $time $how;
-}
-
-@mixin inline-item($width: 48%, $v-align: top, $margin: 10px) {
-  display: inline-block;
-  width: $width;
-  vertical-align: $v-align;
-  margin-right: $margin;
-
-  &:last-child {
-    margin-right: 0;
-  }
 }

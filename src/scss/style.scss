@@ -1,20 +1,17 @@
-@import "variables/fonts";
-@import "variables/mq";
-@import "variables/colors";
-@import "variables/mixins";
+@import 'variables/fonts';
+@import 'variables/mq';
+@import 'variables/colors';
+@import 'variables/mixins';
 
-@import "common/icons";
-@import "common/form";
-@import "common/loader";
+@import 'common/icons';
+@import 'common/form';
+@import 'common/loader';
 
-@import "common/buttons";
+@import 'common/buttons';
 
+@import 'layout/main-header';
+@import 'layout/menu-burger';
+@import 'layout/nav';
+@import 'layout/page';
 
-@import "layout/main-header";
-@import "layout/menu-burger";
-@import "layout/nav";
-
-
-
-
-@import "main";
+@import 'main';

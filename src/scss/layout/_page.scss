@@ -1,0 +1,23 @@
+.hero {
+  background-image: url('/public/images/top-foto.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+
+  &.flex {
+    justify-content: center;
+  }
+
+  .hero-link {
+    border: 1px solid black;
+    padding: 20px;
+  }
+}
+.main-container {
+  height: 100vh;
+  flex-grow: 1;
+}
+
+.container {
+  padding: 40px;
+}
