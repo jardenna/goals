@@ -1,24 +1,12 @@
 
 [production]
 last 2 versions
-> 5.2%
-
-
-[modern]
-last 1 chrome version
-last 1 firefox version
-
-[ssr]
-node 12
-
-defaults
-not ie > 0
-not ie_mob > 0
+> 0.2%
 not dead
 
-[esm]
-edge >= 16
-firefox >= 60
-chrome >= 61
-safari >= 11
-opera >= 48
+
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version
+
