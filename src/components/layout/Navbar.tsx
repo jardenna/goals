@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../app/hooks';
 import { logout } from '../../features/auth/authSlice';
@@ -7,8 +7,16 @@ import useAuth from '../../hooks/useAuth';
 import MenuBurger from '../common/MenuBurger';
 const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
-
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    } else {
+      navigate('/protected');
+    }
+  }, [isAuthenticated]);
 
   const [openNav, setOpenNav] = useState(false);
 
@@ -33,10 +41,12 @@ const Navbar = () => {
       <li className="nav-item flex-item">Welcome {user && user.name}</li>
 
       <li className="nav-item flex-item">
-        <NavLink to="/protected">Protected</NavLink>
+        <NavLink to="/protected" state={{ from: location }}>
+          Protected
+        </NavLink>
       </li>
       <li className="nav-item flex-item" onClick={logoutUser}>
-        Logout
+        <NavLink to="/login">Logout</NavLink>
       </li>
     </>
   );

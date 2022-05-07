@@ -34,7 +34,9 @@ const PageLayout: FC = () => (
       </Routes>
     </main>
     <footer className="main-footer">
-      <section className="container">Footer</section>
+      <section className="container">
+        © 2022 My Goal, All rights reserved.
+      </section>
     </footer>
   </article>
 );

@@ -89,10 +89,6 @@
   flex-wrap: $wrap;
   justify-content: $justify-content;
   flex-direction: $flex-direction;
-
-  @include mQ($small) {
-    display: block;
-  }
 }
 
 @mixin flex($values: 1, $margin: 30px) {

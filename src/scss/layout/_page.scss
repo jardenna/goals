@@ -24,10 +24,14 @@
   }
 }
 .main-container {
-  height: 100vh;
-  flex-grow: 1;
+  min-height: 100vh;
 }
 
 .container {
-  padding: 40px;
+  padding: 30px;
+}
+
+.main-footer {
+  background-color: $color-secondary;
+  font-size: 12px;
 }

@@ -90,6 +90,6 @@ module.exports = {
     },
     port: 4000,
     hot: true,
-    historyApiFallback: true, //This is needed for react-router-dom when a server is running
+    historyApiFallback: true,
   },
 };

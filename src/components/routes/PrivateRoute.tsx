@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 
 const PrivateRoute: FC = () => {
   const { isAuthenticated } = useAuth();
+
   const location = useLocation();
   return isAuthenticated ? (
     <Outlet />

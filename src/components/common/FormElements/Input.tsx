@@ -32,7 +32,7 @@ const Input: FC<InputProps> = ({
     />
     <Label
       className={value && value !== '' ? 'top' : ''}
-      htmlFor={'inputIdentifier'}
+      htmlFor={inputIdentifier}
       isRequired={isRequired}
       label={label || ''}
     />
