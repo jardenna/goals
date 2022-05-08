@@ -6,7 +6,6 @@ import { useAppDispatch } from '../../app/hooks';
 import Form from '../common/FormElements/Form';
 import useFormValidation from '../../hooks/useFormValidation';
 
-import { BlurEventType } from '../../interfaces/events';
 import { PageProps } from '../../interfaces/interfaces';
 import { InputListProps } from '../../interfaces/form';
 import { PageId } from '../../types/types';
@@ -21,7 +20,7 @@ type LocationProps = {
 };
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
-  const { user, isLoading, isError, isAuthenticated } = useAuth();
+  const { isError } = useAuth();
   const initialState = {
     name: '',
     email: '',
@@ -108,11 +107,11 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
       hidden: id === PageId.Login,
     },
   ];
-  const onBlur = (e: BlurEventType) => {
-    const { name } = e.target;
+  // const onBlur = (e: BlurEventType) => {
+  //   const { name } = e.target;
 
-    // blur(name);
-  };
+  //   // blur(name);
+  // };
 
   return (
     <article>
@@ -125,7 +124,6 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
         btnText={isLoginPage ? 'Login' : 'Register'}
         onSubmit={handleSubmit}
         onClearAll={onClearAll}
-        onBlur={onBlur}
         showResetButton
       />
     </article>

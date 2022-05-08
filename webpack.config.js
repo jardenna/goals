@@ -3,14 +3,24 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const prodMode = process.env.NODE_ENV === 'production';
 
 let mode = 'development';
 let target = 'web';
 
+const eslintOptions = {
+  failOnError: false,
+  emitWarning: true,
+  overrideConfigFile: '.eslintrc.js',
+  extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
+  eslintPath: require.resolve('eslint'),
+};
+
 const plugins = [
   new CleanWebpackPlugin(),
+
   new MiniCssExtractPlugin({
     filename: !prodMode ? '[name].css' : '[name].[contenthash].css',
   }),
@@ -26,6 +36,7 @@ if (prodMode) {
 } else {
   // only enable hot in development
   plugins.push(new webpack.HotModuleReplacementPlugin());
+  plugins.push(new ESLintPlugin(eslintOptions));
 }
 
 module.exports = {

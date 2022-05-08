@@ -17,7 +17,7 @@ const PageLayout: FC = () => (
     <Hero />
     <main className="flex-grow-1 container">
       <Routes>
-        <Route path="/" element={<Home id="home" title="home" />} />
+        <Route path="/" element={<Home title="home" />} />
         <Route element={<PrivateRoute />}>
           <Route path="/protected" element={<Protected />} />
         </Route>
