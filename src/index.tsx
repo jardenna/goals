@@ -1,14 +1,10 @@
-import './scss/style.scss';
+import { createRoot } from 'react-dom/client';
 
-import { render } from 'react-dom';
+import './scss/style.scss';
 
 import App from './components/App';
 
-const wrapper = document.getElementById('root');
-render(<App />, wrapper);
+const container = document.getElementById('root') as HTMLElement;
+const root = createRoot(container);
 
-//------------------------------------
-
-if (module && module.hot) {
-  module.hot.accept();
-}
+root.render(<App />);

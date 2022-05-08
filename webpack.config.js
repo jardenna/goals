@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -35,8 +36,9 @@ if (prodMode) {
   target = 'browserslist'; // to fix temporary hmr problem for scss
 } else {
   // only enable hot in development
-  plugins.push(new webpack.HotModuleReplacementPlugin());
+  //plugins.push(new webpack.HotModuleReplacementPlugin());
   plugins.push(new ESLintPlugin(eslintOptions));
+  plugins.push(new ReactRefreshPlugin());
 }
 
 module.exports = {
