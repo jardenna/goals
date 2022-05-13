@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { PageId } from '../../types/types';
+import { PageId } from '../types/types';
 import Login from '../pages/AuthPage';
 import Home from '../pages/Home';
 

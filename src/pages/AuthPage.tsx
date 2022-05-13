@@ -1,16 +1,16 @@
 import { FC, useEffect, useState } from 'react';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch } from '../app/hooks';
 
-import Form from '../common/FormElements/Form';
-import useFormValidation from '../../hooks/useFormValidation';
+import useFormValidation from '../hooks/useFormValidation';
 
-import { PageProps } from '../../interfaces/interfaces';
-import { InputListProps } from '../../interfaces/form';
-import { PageId } from '../../types/types';
+import { PageProps } from '../interfaces/interfaces';
+import { InputListProps } from '../interfaces/form';
+import { PageId } from '../types/types';
 
-import { register, login, reset } from '../../features/auth/authSlice';
-import useAuth from '../../hooks/useAuth';
+import { register, login, reset } from '../features/auth/authSlice';
+import useAuth from '../hooks/useAuth';
+import Form from '../components/common/FormElements/Form';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();

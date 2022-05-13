@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 
-import { useAppDispatch } from '../../app/hooks';
-import { logout } from '../../features/auth/authSlice';
-import useAuth from '../../hooks/useAuth';
-import MenuBurger from '../common/MenuBurger';
+import { useAppDispatch } from '../app/hooks';
+import { logout } from '../features/auth/authSlice';
+import useAuth from '../hooks/useAuth';
+import MenuBurger from '../components/common/MenuBurger';
 
 type LocationProps = {
   state: {

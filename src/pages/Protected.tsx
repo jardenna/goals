@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import Form from '../components/common/FormElements/Form';
 import {
   createGoals,
   getGoals,
   reset,
   selectGoals,
-} from '../../features/goals/goalSlice';
-import useAuth from '../../hooks/useAuth';
-import useFormValidation from '../../hooks/useFormValidation';
-import { InputListProps } from '../../interfaces/form';
-import Form from '../common/FormElements/Form';
+} from '../features/goals/goalSlice';
+import useAuth from '../hooks/useAuth';
+import useFormValidation from '../hooks/useFormValidation';
+import { InputListProps } from '../interfaces/form';
 
 const Protected = () => {
   const { goals, isError } = useAppSelector(selectGoals);
