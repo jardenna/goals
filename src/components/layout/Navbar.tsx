@@ -41,9 +41,7 @@ const Navbar = () => {
       <li className="nav-item flex-item">Welcome {user && user.name}</li>
 
       <li className="nav-item flex-item">
-        <NavLink to="/protected" state={{ from: location }}>
-          Protected
-        </NavLink>
+        <NavLink to="/protected">Protected</NavLink>
       </li>
       <li className="nav-item flex-item" onClick={logoutUser}>
         <NavLink to="/login">Logout</NavLink>
