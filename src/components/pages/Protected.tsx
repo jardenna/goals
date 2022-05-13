@@ -18,12 +18,11 @@ const Protected = () => {
 
   const [errorText, setErrorText] = useState(initialErrorText);
 
-  const user = useAuth();
-
+  const { user, isAuthenticated } = useAuth();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (user.isAuthenticated) {
+    if (isAuthenticated) {
       dispatch(getGoals());
     }
     return () => {
@@ -32,13 +31,13 @@ const Protected = () => {
   }, [dispatch]);
 
   const handleSubmitGoals = () => {
-    if (values.text === '' && user.isAuthenticated) {
+    if (values.text === '' && isAuthenticated) {
       setErrorText('Please add a goal');
     }
-    if (user.isAuthenticated) {
+    if (isAuthenticated) {
       dispatch(createGoals(values));
     } else {
-      setErrorText(user.user.status);
+      setErrorText(user.status);
     }
   };
 

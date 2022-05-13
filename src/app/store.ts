@@ -5,7 +5,10 @@ import { configureStore } from '@reduxjs/toolkit';
 const localStorageMiddleware = ({ getState }: any) => {
   return (next: (arg0: any) => any) => (action: any) => {
     const result = next(action);
-    localStorage.setItem('applicationState', JSON.stringify(getState()));
+    localStorage.setItem(
+      'isAuthenticated',
+      JSON.stringify(getState().auth.isAuthenticated)
+    );
     return result;
   };
 };

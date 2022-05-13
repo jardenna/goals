@@ -1,20 +1,30 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 import { useAppDispatch } from '../../app/hooks';
 import { logout } from '../../features/auth/authSlice';
 import useAuth from '../../hooks/useAuth';
 import MenuBurger from '../common/MenuBurger';
+
+type LocationProps = {
+  state: {
+    from: Location;
+  };
+};
+
 const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const location = useLocation() as LocationProps;
+  const from = location.state?.from?.pathname || '/';
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login');
     } else {
-      navigate('/protected');
+      navigate(from, { replace: true });
     }
   }, [isAuthenticated]);
 
