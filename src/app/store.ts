@@ -12,12 +12,13 @@ const localStorageMiddleware = ({ getState }: any) => {
     return result;
   };
 };
-
+import posts from '../features/posts/postSlice';
 import goals from '../features/goals/goalSlice';
 import authReducer from '../features/auth/authSlice';
 
 const reducer = {
   goals,
+  posts,
   auth: authReducer,
 };
 
