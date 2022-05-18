@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { useAppSelector } from '../app/hooks';
 import PostForm from '../features/posts/PostForm';
 import { selectAllPosts } from '../features/posts/postSlice';
@@ -16,14 +17,14 @@ const Home: FC<HomeProps> = ({ title }) => {
     key: string,
     desending = false
   ) =>
-    arr.slice().sort((a, b) => {
+    [...arr].sort((a, b) => {
       if (desending) {
-        return !b[key].localeCompare(a[key]);
+        return a[key].localeCompare(b[key]);
       }
       return b[key].localeCompare(a[key]);
     });
 
-  const sortedPosts = sortFunction(posts, 'id');
+  const sortedPosts = sortFunction(posts, 'title', true);
 
   return (
     <article>
