@@ -12,10 +12,10 @@ const Navbar = () => {
 
   //open-nav
   return (
-    <nav className={`main-nav flex-item ${openNav ? 'open-nav' : ''}`}>
+    <nav className={`main-nav ${openNav ? 'open-nav' : ''}`}>
       <MenuBurger onClick={onToggleMenu} />
       <ul className="nav-container">
-        <li className="nav-item flex-item">
+        <li className="nav-item">
           <NavLink to="/">Home</NavLink>
         </li>
       </ul>

@@ -29,6 +29,9 @@
 
 .container {
   padding: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+  @include flexbox($flex-direction: row);
 }
 
 .main-footer {

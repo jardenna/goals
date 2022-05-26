@@ -21,12 +21,7 @@ $burgerColorActive: $color-primary;
   margin-top: 70px;
 }
 .main-nav {
-  width: 100%;
-  text-align: right;
-  margin: 0;
-
   @include mQ($small) {
-    text-align: left;
     @include transition();
     position: fixed;
     right: -200px;
