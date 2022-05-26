@@ -22,6 +22,7 @@ const routes = [
   { path: '/teams', element: <Page title="Teams" /> },
   { path: '/projects', element: <Page title="Projects" /> },
   { path: '/calendar', element: <Page title="Calendar" /> },
+  { path: '*', element: <PageNotFound /> },
 ];
 
 const PageLayout: FC = () => {
