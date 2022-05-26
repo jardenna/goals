@@ -6,27 +6,25 @@ import { PageId } from '../types/types';
 import PageNotFound from '../pages/PageNotFound';
 
 import PrivateRoute from '../routes/PrivateRoute';
-let routes: RouteObject[] = [
+import Protected from '../pages/Protected';
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <Home title="home" />,
-    children: [
-      { index: true, element: <Home title="home" /> },
-      {
-        path: '/login',
-        element: <Login id={PageId.Login} title="Login" />,
-      },
-      {
-        path: '/register',
-        element: <Login id={PageId.Register} title="Register" />,
-      },
-      {
-        path: '/protected',
-        element: <PrivateRoute />,
-      },
-      { path: '*', element: <PageNotFound /> },
-    ],
   },
-];
+  {
+    path: 'login',
+    element: <Login id={PageId.Login} title="Login" />,
+  },
+  {
+    path: 'register',
+    element: <Login id={PageId.Register} title="Register" />,
+  },
+  {
+    path: 'protected',
+    element: <Protected />,
+    children: [{ path: 'protected', element: <PrivateRoute /> }],
+  },
 
-export default routes;
+  { path: '*', element: <PageNotFound /> },
+];
