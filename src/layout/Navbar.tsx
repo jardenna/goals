@@ -48,8 +48,6 @@ const Navbar = () => {
   };
   const authLinks = (
     <>
-      <li className="nav-item flex-item">Welcome {user && user.name}</li>
-
       <li className="nav-item flex-item">
         <NavLink to="/protected">Protected</NavLink>
       </li>
@@ -61,8 +59,12 @@ const Navbar = () => {
   //open-nav
   return (
     <nav className={`main-nav flex-item ${openNav ? 'open-nav' : ''}`}>
+      {user && <span>Welcome {user.name}</span>}
       <MenuBurger onClick={onToggleMenu} />
       <ul className="nav-container">
+        <li className="nav-item flex-item">
+          <NavLink to="/users">Users</NavLink>
+        </li>
         <li className="nav-item flex-item">
           <NavLink to="/">Home</NavLink>
         </li>

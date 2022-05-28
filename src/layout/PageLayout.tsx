@@ -10,6 +10,7 @@ import Protected from '../pages/Protected';
 import PrivateRoute from '../routes/PrivateRoute';
 import Header from './Header';
 import Hero from './Hero';
+import Users from '../pages/Users';
 
 const PageLayout: FC = () => (
   <article className="main-container flex">
@@ -20,6 +21,7 @@ const PageLayout: FC = () => (
         <Route path="/" element={<Home title="home" />} />
         <Route element={<PrivateRoute />}>
           <Route path="/protected" element={<Protected />} />
+          <Route path="/users" element={<Users />} />
         </Route>
 
         <Route
