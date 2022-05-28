@@ -8,9 +8,16 @@ import { PageProps } from '../interfaces/interfaces';
 import { InputListProps } from '../interfaces/form';
 import { PageId } from '../types/types';
 
-import { register, login, reset } from '../features/auth/authSlice';
+import {
+  register,
+  login,
+  reset,
+  clearErrors,
+  blurErrors,
+} from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
 import Form from '../components/common/FormElements/Form';
+import { BlurEventType } from '../interfaces/events';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();
@@ -49,6 +56,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { name, email, password, password2 } = values;
   useEffect(() => {
     dispatch(reset());
+    dispatch(clearErrors());
   }, []);
 
   const inputs: InputListProps[] = [
@@ -95,11 +103,10 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
       hidden: id === PageId.Login,
     },
   ];
-  // const onBlur = (e: BlurEventType) => {
-  //   const { name } = e.target;
-
-  //   // blur(name);
-  // };
+  const onBlur = (e: BlurEventType) => {
+    const { name } = e.target;
+    dispatch(blurErrors(name));
+  };
 
   return (
     <article>
@@ -113,6 +120,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
         onSubmit={handleSubmit}
         onClearAll={onClearAll}
         showResetButton
+        onBlur={onBlur}
       />
     </article>
   );

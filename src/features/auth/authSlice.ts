@@ -5,19 +5,26 @@ import fetchApi from '../../utils/fetchApi';
 import { KeyValuePair } from '../../interfaces/interfaces';
 import errorObj, { ErrorObjState } from '../../utils/utils';
 
-//import { current } from 'immer';
+interface User {
+  createdAt: string;
+  email: string;
+  name: string;
+  password: string;
+  pic: string;
+  updatedAt: string;
+  _id: string;
+}
 
 interface UsersState {
   isAuthenticated: boolean;
-  user: any;
+  user: User | null;
   isLoading: boolean;
-  isError: ErrorObjState;
+  isError: any;
 }
 const initialState = {
   isAuthenticated: false,
   isLoading: false,
   user: null,
-  bluredError: '',
   isError: errorObj,
 } as UsersState;
 
@@ -49,7 +56,6 @@ export const currentUser = createAsyncThunk('auth/user', async () => {
 
   return response;
 });
-
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -57,6 +63,12 @@ export const authSlice = createSlice({
     reset: (state) => {
       state.isLoading = false;
       state.isError = errorObj;
+    },
+    clearErrors: (state) => {
+      state.isError = errorObj;
+    },
+    blurErrors: (state, action) => {
+      state.isError[action.payload] = '';
     },
   },
   extraReducers: (builder) => {
@@ -95,7 +107,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { reset } = authSlice.actions;
+export const { reset, clearErrors, blurErrors } = authSlice.actions;
 export const selectUser = (state: RootState) => state.auth;
 
 export default authSlice.reducer;

@@ -18,7 +18,7 @@ const Protected = () => {
 
   const [errorText, setErrorText] = useState(initialErrorText);
 
-  const { user, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -36,8 +36,6 @@ const Protected = () => {
     }
     if (isAuthenticated) {
       dispatch(createGoals(values));
-    } else {
-      setErrorText(user.status);
     }
   };
 

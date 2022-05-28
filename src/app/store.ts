@@ -1,25 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-//import logger from 'redux-logger';
 
-//MIDDLEWARE
-const localStorageMiddleware = ({ getState }: any) => {
-  return (next: (arg0: any) => any) => (action: any) => {
-    const result = next(action);
-    localStorage.setItem(
-      'isAuthenticated',
-      JSON.stringify(getState().auth.isAuthenticated)
-    );
-    return result;
-  };
-};
-import posts from '../features/posts/postSlice';
 import goals from '../features/goals/goalSlice';
-import authReducer from '../features/auth/authSlice';
+import auth from '../features/auth/authSlice';
+import localStorageMiddleware from './middleware/localStorageMiddleware';
 
 const reducer = {
   goals,
-  posts,
-  auth: authReducer,
+  auth,
 };
 
 export const store = configureStore({
