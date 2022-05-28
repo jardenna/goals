@@ -1,4 +1,4 @@
-import { Routes, Route, RouteObject } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PageLayout from './layout/PageLayout';
 import AuthPage from './pages/AuthPage';
 import Home from './pages/Home';
@@ -8,33 +8,8 @@ import Users from './pages/Users';
 import PrivateRoute from './routes/PrivateRoute';
 import { PageId } from './types/types';
 
-const routeConfig: RouteObject[] = [
-  {
-    path: '/',
-    element: <PageLayout />,
-    children: [
-      {
-        path: '/login',
-        element: <AuthPage id={PageId.Login} title="Login" />,
-      },
-      {
-        path: '/register',
-        element: <AuthPage id={PageId.Register} title="Register" />,
-      },
-      { path: '*', element: <PageNotFound /> },
-      {
-        path: '/',
-        element: <PrivateRoute />,
-        children: [
-          { path: '/protected', element: <Protected /> },
-          { path: '/users', element: <Users /> },
-        ],
-      },
-    ],
-  },
-];
-
 function App() {
+  // const element = useRoutes(routeConfig);
   return (
     <Routes>
       <Route path="/" element={<PageLayout />}>
