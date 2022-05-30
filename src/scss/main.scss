@@ -66,3 +66,14 @@ form {
 .flex-grow-1 {
   flex-grow: 1;
 }
+
+svg {
+  width: 20px;
+}
+
+.doc {
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
