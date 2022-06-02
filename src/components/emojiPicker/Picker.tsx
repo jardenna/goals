@@ -6,12 +6,15 @@ function EmojiPicker(props: any) {
   const ref: any = useRef();
 
   useEffect(() => {
-    new Picker({ ...props, data, ref });
+    new Picker({ ...props, data });
   }, []);
 
+  const addEmoji = (e: any) => {
+    console.log(e);
+  };
   return (
     <>
-      <div ref={ref} onClick={props.onEmojiSelect} />
+      <div ref={ref} onClick={addEmoji} />
     </>
   );
 }

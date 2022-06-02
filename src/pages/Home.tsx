@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import EmojiPicker from '../components/emojiPicker/Picker';
 
 import DocIcon from './Doc';
 
@@ -14,7 +13,6 @@ const Home: FC<HomeProps> = ({ title }) => {
       <div className="doc">
         <a href="#">
           <DocIcon />
-          <EmojiPicker onEmojiSelect={() => console.log(123)} />
           Mit Document
         </a>
       </div>
