@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
 import { KeyValuePair } from '../../interfaces/interfaces';
-import errorObj, { ErrorObjState } from '../../utils/utils';
+import errorObj from '../../utils/utils';
 
 interface User {
   createdAt: string;
