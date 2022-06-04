@@ -10,25 +10,16 @@ interface goals {
   _id: string;
   text: string;
 }
-
-interface toggle {
-  element: string;
-  open: boolean;
-}
 interface GoalsState {
   goals: goals[];
   isLoading: boolean;
   isError: GoalErrorState;
-  toggle: toggle[];
-  elemToggled: boolean;
 }
 
 const initialState = {
   goals: [],
   isError: goalErrObj,
   isLoading: false,
-  toggle: [],
-  elemToggled: false,
 } as GoalsState;
 
 //Get goals
@@ -65,18 +56,6 @@ export const goalSlice = createSlice({
       state.isError = goalErrObj;
       state.goals = [];
     },
-
-    toggleElement: (state, action) => {
-      state.elemToggled = !state.elemToggled;
-      state.toggle = [
-        {
-          element: action.payload,
-          open: state.elemToggled,
-        },
-      ];
-
-      //state.toggle = [action.payload, ...state.toggle];
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -99,6 +78,6 @@ export const goalSlice = createSlice({
   },
 });
 
-export const { reset, toggleElement } = goalSlice.actions;
+export const { reset } = goalSlice.actions;
 export const selectGoals = (state: RootState) => state.goals;
 export default goalSlice.reducer;
