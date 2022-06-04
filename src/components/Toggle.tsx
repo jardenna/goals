@@ -1,31 +1,32 @@
 import { FC, useState } from 'react';
 interface ToggleProps {}
 
-const Users = [
-  { id: 1, name: 'Andy', age: 32 },
-  { id: 2, name: 'Bob', age: 30 },
-];
-
 const Toggle: FC<ToggleProps> = () => {
   const [toggle, setToggle] = useState<any>({});
 
-  const toggleFunction = (id: number) => {
+  const handleToggle = (e: any) => {
+    const { id } = e.target;
     setToggle({
       ...toggle,
       [id]: !toggle[id],
     });
   };
+  console.log(toggle);
 
   return (
     <div className="container">
       <div className="user-list">
-        {Users.map((user) => (
-          <li key={user.id} className="user">
-            <button onClick={() => toggleFunction(user.id)}>Button</button>
+        {!toggle.btn1 && <div>I am visible</div>}
+        <button id="btn1" onClick={handleToggle}>
+          {toggle.btn1 ? 'btn' : 'not'}
+        </button>
 
-            {toggle[user.id] && <span>text to toggle for {user.id}</span>}
-          </li>
-        ))}
+        <div>
+          {toggle.btn2 && <div>I am visible</div>}
+          <button id="btn2" onClick={handleToggle}>
+            {toggle.btn2 ? 'btn' : 'not'}
+          </button>
+        </div>
       </div>
     </div>
   );
