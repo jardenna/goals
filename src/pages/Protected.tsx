@@ -6,6 +6,7 @@ import {
   getGoals,
   reset,
   selectGoals,
+  toggleElement,
 } from '../features/goals/goalSlice';
 import useAuth from '../hooks/useAuth';
 import useFormValidation from '../hooks/useFormValidation';
@@ -56,11 +57,19 @@ const Protected = () => {
       error: errorText,
     },
   ];
-
+  const handleToggle = (e: any) => {
+    dispatch(toggleElement(e.target.id));
+  };
   return (
     <article>
       <header>Protected</header>
+      <button id="btn" onClick={handleToggle}>
+        Klick
+      </button>
 
+      <button id="btn2" onClick={handleToggle}>
+        Klick
+      </button>
       <Form
         inputs={inputs}
         onChange={handleChange}
