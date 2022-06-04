@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import Form from '../components/common/FormElements/Form';
+import Toggle from '../components/Toggle';
 import {
   createGoals,
   getGoals,
@@ -72,12 +73,13 @@ const Protected = () => {
         btnText="Send"
         onSubmit={handleSubmit}
       />
-      <button onClick={handleToggle} id="btn2">
+      <Toggle />
+      {/* <button onClick={handleToggle} id="btn2">
         Klik 2
       </button>
       <button onClick={handleToggle} id="btn1">
         Klik 1
-      </button>
+      </button> */}
       <div>
         {goals.map((goal) => (
           <div key={goal._id}>{goal.text} </div>

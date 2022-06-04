@@ -15,6 +15,7 @@ button {
   display: inline-block;
   @include transition();
   position: relative;
+  color: $color-primary-text;
 
   &:focus {
     border: var(--focus);
@@ -46,6 +47,7 @@ a.btn-primary {
 
 .btn-primary {
   background-color: $color-primary-btn;
+  color: $color-white;
 
   &:hover {
     background-color: $color-primary-btn-hover;
