@@ -1,13 +1,9 @@
 import { RootState } from '../../app/store';
 import { createSlice } from '@reduxjs/toolkit';
-
-interface Toggle {
-  element: string;
-  completed: boolean;
-}
+import { KeyValuePair } from '../../interfaces/interfaces';
 
 interface ToggleState {
-  toggleObj: Toggle;
+  toggleObj: KeyValuePair<string>;
 }
 const initialState = {
   toggleObj: {},
@@ -18,11 +14,12 @@ const toggleSlice = createSlice({
   initialState,
   reducers: {
     toggleElem: (state, action) => {
-      state.toggleObj.element = action.payload.id;
-      state.toggleObj.completed = !state.toggleObj.completed;
+      const id = action.payload;
+      state.toggleObj = { ...state.toggleObj, [id]: !state.toggleObj[id] };
     },
   },
 });
+
 export const { toggleElem } = toggleSlice.actions;
-export const selectToggle = (state: RootState) => state.toggle;
+export const selectToggle = (state: RootState) => state.toggle.toggleObj;
 export default toggleSlice.reducer;

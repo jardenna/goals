@@ -8,7 +8,7 @@ import {
   reset,
   selectGoals,
 } from '../features/goals/goalSlice';
-import { selectToggle, toggleElem } from '../features/toggleElem/toggleSlice';
+
 import useAuth from '../hooks/useAuth';
 import useFormValidation from '../hooks/useFormValidation';
 import { InputListProps } from '../interfaces/form';
@@ -17,8 +17,6 @@ const Protected = () => {
   const { goals, isError } = useAppSelector(selectGoals);
 
   const initialErrorText = isError ? isError.text : '';
-  const test = useAppSelector(selectToggle);
-  console.log(test.toggleObj);
 
   const [errorText, setErrorText] = useState(initialErrorText);
 
@@ -60,9 +58,7 @@ const Protected = () => {
       error: errorText,
     },
   ];
-  const handleToggle = (e: any) => {
-    dispatch(toggleElem({ id: e.target.id, completed: true }));
-  };
+
   return (
     <article>
       <header>Protected</header>
@@ -74,12 +70,7 @@ const Protected = () => {
         onSubmit={handleSubmit}
       />
       <Toggle />
-      {/* <button onClick={handleToggle} id="btn2">
-        Klik 2
-      </button>
-      <button onClick={handleToggle} id="btn1">
-        Klik 1
-      </button> */}
+
       <div>
         {goals.map((goal) => (
           <div key={goal._id}>{goal.text} </div>

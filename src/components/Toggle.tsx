@@ -1,32 +1,19 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { useAppSelector } from '../app/hooks';
+import { selectToggle } from '../features/toggleElem/toggleSlice';
+
 interface ToggleProps {}
 
 const Toggle: FC<ToggleProps> = () => {
-  const [toggle, setToggle] = useState<any>({});
-
-  const handleToggle = (e: any) => {
-    const { id } = e.target;
-    setToggle({
-      ...toggle,
-      [id]: !toggle[id],
-    });
-  };
-  console.log(toggle);
+  const toggled = useAppSelector(selectToggle);
 
   return (
     <div className="container">
+      hello
       <div className="user-list">
-        {!toggle.btn1 && <div>I am visible</div>}
-        <button id="btn1" onClick={handleToggle}>
-          {toggle.btn1 ? 'btn' : 'not'}
-        </button>
+        {!toggled.calendar && <div>I am visible</div>}
 
-        <div>
-          {toggle.btn2 && <div>I am visible</div>}
-          <button id="btn2" onClick={handleToggle}>
-            {toggle.btn2 ? 'btn' : 'not'}
-          </button>
-        </div>
+        <div>{toggled.btn2 && <div>So am I</div>}</div>
       </div>
     </div>
   );
