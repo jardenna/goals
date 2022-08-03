@@ -19,25 +19,8 @@ function App() {
 
 export default App;
 
-// import { addMonths, subMonths } from "date-fns";
-
-// const date = new Date();
-// function getFirstDayOfMonth(year, month) {
-//   return new Date(year, month, 1);
-// }
-// const firstDayCurrentMonth = getFirstDayOfMonth(
-//   date.getFullYear(),
-//   date.getMonth(),
-// );
-// const a = addMonths(firstDayCurrentMonth, 2);
-// const b = subMonths(firstDayCurrentMonth, 1);
-// document.getElementById("app").innerHTML = `
-
-// <div>
-// Subtract: ${b}
-// </div>
-
-// <div>
-// Add: ${a}
-// </div>
-// `;
+// https://stackoverflow.com/questions/70698899/why-does-react-router-v6-seem-unable-to-remove-query-string-param-from-url
+// https://stackoverflow.com/questions/27281405/group-by-object-ids-in-javascript
+// https://stackoverflow.com/questions/58433967/group-array-of-objects-by-id
+// https://stackoverflow.com/questions/39634912/group-javascript-array-of-objects-by-id
+// https://stackblitz.com/edit/navigate-to-url-query-strings-search-params-react-router?file=src%2FApp.js
