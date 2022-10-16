@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@font-face {
+  font-family: 'openSans';
+  src: url('/public/fonts/OpenSans-Regular.ttf');
 
-$font-primary: Spartan, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
 
-$font-logo: 'Poiret One', cursive, sans-serif;
-$font-secondary: Noto, sans-serif;
+@font-face {
+  font-family: 'walkway';
+  src: url('/public/fonts/walkway_expand_bold-webfont.eot');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-primary: open sans, sans-serif;
+$font-secondary: walkway, sans-serif;

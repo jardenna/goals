@@ -48,8 +48,8 @@ module.exports = {
     // output path is required for `clean-webpack-plugin`'
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    // this places all images processed in an image folder
-    assetModuleFilename: 'images/[name][ext]',
+    //// this places all images processed in an image folder
+    // assetModuleFilename: 'images/[name][ext]',
   },
   mode,
   module: {
@@ -80,8 +80,19 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset',
+
+        generator: {
+          filename: 'fonts/[name][ext]',
+        },
       },
     ],
   },
