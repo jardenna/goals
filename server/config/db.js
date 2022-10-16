@@ -1,13 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const access = process.env.API_KEY;
-const projectName = process.env.PROJECT_NAME;
-const name = process.env.CALLED_NAME;
-
 const db =
-  `mongodb+srv://${name}:${access}@cluster0-pimzw.mongodb.net/${projectName}?retryWrites=true&w=majority` ||
-  'mongodb://localhost/${name}';
+  `mongodb+srv://${process.env.CALLED_NAME}:${process.env.API_KEY}@cluster0.pimzw.mongodb.net/goals?retryWrites=true&w=majority` ||
+  'mongodb://localhost/${ process.env.CALLED_NAME}';
 const connectDB = async () => {
   try {
     await mongoose.connect(db);

@@ -69,16 +69,7 @@ const Navbar = () => {
       <MenuBurger onClick={onToggleMenu} />
       <ul className="nav-container">
         <li>
-          <button onClick={handleToggle} id="calendar">
-            Hide Calendar
-          </button>
-
-          <button onClick={handleToggle} id="btn2">
-            show btn2
-          </button>
-          <button onClick={handleToggle} id="btn3">
-            show btn3
-          </button>
+          <button onClick={handleToggle} />
         </li>
         <li className="nav-item flex-item">
           <NavLink to="/users">Users</NavLink>

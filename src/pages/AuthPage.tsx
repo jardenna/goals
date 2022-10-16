@@ -18,7 +18,6 @@ import {
 import useAuth from '../hooks/useAuth';
 import Form from '../components/common/FormElements/Form';
 import { BlurEventType } from '../interfaces/events';
-import EmojiPickerBody from '../components/emojiPicker/EmojiPickerBody';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();
@@ -112,7 +111,6 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   return (
     <article>
       <h1>{title}</h1>
-      <EmojiPickerBody />
 
       {isError?.noUser}
       <Form

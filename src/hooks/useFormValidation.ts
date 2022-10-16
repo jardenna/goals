@@ -1,6 +1,5 @@
 import React from 'react';
-import { useAppDispatch } from '../app/hooks';
-import { blurErrors } from '../features/auth/authSlice';
+
 import {
   ChangeEventType,
   FormEventType,
@@ -17,7 +16,7 @@ function useFormValidation(
   const [errors, setErrors] = React.useState({});
   const [touched, setTouched] = React.useState<string[]>([]);
   const [isSubmitting, setSubmitting] = React.useState(false);
-  const dispatch = useAppDispatch();
+
   React.useEffect(() => {
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0;
@@ -46,7 +45,7 @@ function useFormValidation(
   function handleChange(e: ChangeEventType) {
     const { name, value } = e.target;
 
-    dispatch(blurErrors(name));
+    // dispatch(blurErrors(name));
     setValues({
       ...values,
       [name]: value,

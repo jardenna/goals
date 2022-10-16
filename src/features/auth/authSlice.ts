@@ -102,7 +102,7 @@ export const authSlice = createSlice({
       .addCase(currentUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-        state.isAuthenticated = action.payload.status ? false : true;
+        state.isAuthenticated = action.payload?.status ? false : true;
       });
   },
 });
