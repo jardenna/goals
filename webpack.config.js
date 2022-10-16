@@ -45,11 +45,11 @@ module.exports = {
     app: './src/index',
   },
   output: {
-    // output path is required for `clean-webpack-plugin`
+    // output path is required for `clean-webpack-plugin`'
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     // this places all images processed in an image folder
-    assetModuleFilename: 'images/[hash][ext][query]',
+    assetModuleFilename: 'images/[name][ext]',
   },
   mode,
   module: {
@@ -64,8 +64,6 @@ module.exports = {
           },
           'css-loader',
           'postcss-loader',
-          // according to the docs, sass-loader should be at the bottom, which
-          // loads it first to avoid prefixes in your sourcemaps and other issues.
           'sass-loader',
         ],
       },
