@@ -53,7 +53,14 @@ a.btn-primary {
     background-color: $color-primary-btn-hover;
   }
 }
-
+.btn-close {
+  @include rotate($deg: 45deg);
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 23px;
+}
 .btn-danger {
   background-color: $color-danger;
 

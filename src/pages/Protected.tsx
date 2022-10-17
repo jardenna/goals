@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
+import Card from '../components/common/Card';
 import Form from '../components/common/FormElements/Form';
 import {
   createGoals,
@@ -69,9 +70,9 @@ const Protected = () => {
         onSubmit={handleSubmit}
       />
 
-      <div>
+      <div className="card-container">
         {goals.map((goal) => (
-          <div key={goal._id}>{goal.text} </div>
+          <Card key={goal._id} content={goal.text} />
         ))}
       </div>
     </article>

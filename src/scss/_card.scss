@@ -1,0 +1,12 @@
+.card-container {
+  display: flex;
+  gap: 8px;
+}
+
+.card {
+  position: relative;
+  min-width: 200px;
+  min-height: 100px;
+  background-color: $color-secondary;
+  padding: 12px;
+}
