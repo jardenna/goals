@@ -18,7 +18,7 @@ const getGoals = async (req, res) => {
 
 // @desc Create goals
 // @route POST api/goals
-// @access Privates
+// @access Private
 const setGoal = async (req, res) => {
   try {
     const goal = await Goal.create({

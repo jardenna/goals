@@ -41,7 +41,7 @@ const Protected = () => {
     }
   };
 
-  const initialValues = { text: '' };
+  const initialValues = { text: '', title: '' };
   const { values, handleChange, handleSubmit } = useFormValidation(
     initialValues,
     handleSubmitGoals
@@ -49,10 +49,19 @@ const Protected = () => {
 
   const inputs: InputListProps[] = [
     {
+      name: 'title',
+      placeholder: 'title',
+      inputIdentifier: 'title',
+      label: 'Title',
+      isRequired: true,
+      value: values.title,
+      error: errorText,
+    },
+    {
       name: 'text',
       placeholder: 'text',
       inputIdentifier: 'text',
-      label: 'Title',
+      label: 'Text',
       isRequired: true,
       value: values.text,
       error: errorText,
