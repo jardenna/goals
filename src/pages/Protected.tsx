@@ -62,7 +62,6 @@ const Protected = () => {
   return (
     <article>
       <header>Protected</header>
-
       <Form
         inputs={inputs}
         onChange={handleChange}

@@ -18,6 +18,7 @@ import {
 import useAuth from '../hooks/useAuth';
 import Form from '../components/common/FormElements/Form';
 import { BlurEventType } from '../interfaces/events';
+import { NavLink } from 'react-router-dom';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();
@@ -28,7 +29,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
     password2: '',
   };
   const dispatch = useAppDispatch();
-
+  const { isAuthenticated } = useAuth();
   const [passwordErr, setPasswordErr] = useState('');
   const handleRegister = async () => {
     const equalPasswords = password === password2;
@@ -111,7 +112,6 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   return (
     <article>
       <h1>{title}</h1>
-
       {isError?.noUser}
       <Form
         inputs={inputs}
@@ -119,9 +119,9 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
         btnText={isLoginPage ? 'Login' : 'Register'}
         onSubmit={handleSubmit}
         onClearAll={onClearAll}
-        showResetButton
         onBlur={onBlur}
       />
+      {!isAuthenticated && <NavLink to="/register">Register</NavLink>}
     </article>
   );
 };

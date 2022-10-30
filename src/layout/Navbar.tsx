@@ -5,7 +5,6 @@ import { useAppDispatch } from '../app/hooks';
 import { logout } from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
 import MenuBurger from '../components/common/MenuBurger';
-import { toggleElem } from '../features/toggleElem/toggleSlice';
 
 type LocationProps = {
   state: {
@@ -37,9 +36,6 @@ const Navbar = () => {
   const guestLinks = (
     <>
       <li className="nav-item flex-item">
-        <NavLink to="/register">Register</NavLink>
-      </li>
-      <li className="nav-item flex-item">
         <NavLink to="/login">Login</NavLink>
       </li>
     </>
@@ -58,19 +54,12 @@ const Navbar = () => {
     </>
   );
 
-  const handleToggle = (e: any) => {
-    const { id } = e.target;
-    dispatch(toggleElem(id));
-  };
   //open-nav
   return (
     <nav className={`main-nav flex-item ${openNav ? 'open-nav' : ''}`}>
-      {user && <span>Welcome {user.name}</span>}
+      {isAuthenticated && <span>Welcome {user?.name}</span>}
       <MenuBurger onClick={onToggleMenu} />
       <ul className="nav-container">
-        <li>
-          <button onClick={handleToggle} />
-        </li>
         <li className="nav-item flex-item">
           <NavLink to="/users">Users</NavLink>
         </li>
