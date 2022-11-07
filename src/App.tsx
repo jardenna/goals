@@ -18,9 +18,16 @@ function App() {
 }
 
 export default App;
-// https://codesandbox.io/s/thirsty-varahamihira-7djv03?file=/src/sidebar.jsx
-// https://stackoverflow.com/questions/70698899/why-does-react-router-v6-seem-unable-to-remove-query-string-param-from-url
-// https://stackoverflow.com/questions/27281405/group-by-object-ids-in-javascript
-// https://stackoverflow.com/questions/58433967/group-array-of-objects-by-id
-// https://stackoverflow.com/questions/39634912/group-javascript-array-of-objects-by-id
-// https://stackblitz.com/edit/navigate-to-url-query-strings-search-params-react-router?file=src%2FApp.js
+
+// cy.get('[href*="maps"]').each(($el) => {
+//   let id_text = $el.text().trim()
+
+//   //Check that the element is visible and click on it
+//   cy.wrap($el).should('be.visible').click()
+
+//   //Check that the url contains the text value of the element that was clicked on
+//   cy.url().should('contain', id_text)
+
+//   //Wait half a sec
+//   cy.wait(500)
+// })
