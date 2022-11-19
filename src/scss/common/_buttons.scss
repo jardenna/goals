@@ -55,12 +55,17 @@ a.btn-primary {
   }
 }
 .btn-close {
-  @include rotate($deg: 45deg);
+  // @include rotate($deg: 45deg);
   display: flex;
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 23px;
+
+  &:after {
+    content: '+';
+    @include rotate($deg: 45deg);
+  }
 }
 .btn-danger {
   background-color: $color-danger;

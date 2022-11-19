@@ -8,6 +8,7 @@ import { KeyValuePair } from '../../interfaces/interfaces';
 
 interface goals {
   _id: string;
+  title: string;
   text: string;
 }
 interface GoalsState {

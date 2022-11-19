@@ -21,8 +21,11 @@ const getGoals = async (req, res) => {
 // @access Private
 const setGoal = async (req, res) => {
   try {
+    const { title, text } = req.body;
+
     const goal = await Goal.create({
-      text: req.body.text,
+      text,
+      title,
       user: req.user.id,
     });
 

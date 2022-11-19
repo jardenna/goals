@@ -18,16 +18,3 @@ function App() {
 }
 
 export default App;
-
-// cy.get('[href*="maps"]').each(($el) => {
-//   let id_text = $el.text().trim()
-
-//   //Check that the element is visible and click on it
-//   cy.wrap($el).should('be.visible').click()
-
-//   //Check that the url contains the text value of the element that was clicked on
-//   cy.url().should('contain', id_text)
-
-//   //Wait half a sec
-//   cy.wait(500)
-// })

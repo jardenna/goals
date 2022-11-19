@@ -6,6 +6,10 @@ const goalSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
+    title: {
+      type: String,
+      required: [true, 'noGoal'],
+    },
     text: {
       type: String,
       required: [true, 'noGoal'],
