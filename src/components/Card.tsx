@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from './Modal/Modal';
 
-export default function Card() {
+const Card = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [target, setTarget] = useState<string>('');
   const openBodyModal = () => {
@@ -41,4 +41,6 @@ export default function Card() {
       </Modal>
     </div>
   );
-}
+};
+
+export default Card;
