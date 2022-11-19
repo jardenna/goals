@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import Icon from '../../public/images/icon.jpg';
-import Card from '../components/Card/Card';
+import Card from '../components/Card';
 import ModalManager from '../components/common/modals/ModalManager';
 
 interface HomeProps {
