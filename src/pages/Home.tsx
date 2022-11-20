@@ -11,13 +11,8 @@ const Home: FC<HomeProps> = ({ title }) => {
   const [modalOpen, setModal] = useState<any>(false);
 
   const openModal = (event: any) => {
-    event.preventDefault();
+    const { modal } = event.target.dataset;
 
-    const {
-      target: {
-        dataset: { modal },
-      },
-    } = event;
     if (modal) {
       setModal(modal);
     }
@@ -30,15 +25,15 @@ const Home: FC<HomeProps> = ({ title }) => {
   return (
     <article>
       <Card />
-      <div className="app--shell" onClick={openModal}>
+      <div>
         <ModalManager closeFn={closeModal} modal={modalOpen} />
-        <button type="button" data-modal="modal-one">
+        <button onClick={openModal} type="button" data-modal="modal-one">
           Open Modal One
         </button>
-        <button type="button" data-modal="modal-two">
+        <button onClick={openModal} type="button" data-modal="modal-two">
           Open Modal Two
         </button>
-        <button type="button" data-modal="modal-three">
+        <button onClick={openModal} type="button" data-modal="modal-three">
           Open Modal Three
         </button>
       </div>

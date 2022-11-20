@@ -9,7 +9,6 @@ interface ModalManagerProps {
 }
 const ModalManager: FC<ModalManagerProps> = ({
   closeFn = () => null,
-
   modal = '',
 }) => (
   <>
