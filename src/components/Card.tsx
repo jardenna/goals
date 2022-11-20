@@ -2,42 +2,46 @@ import { useState } from 'react';
 import Modal from './Modal/Modal';
 
 const Card = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [target, setTarget] = useState<string>('');
-  const openBodyModal = () => {
+  const [target, setTarget] = useState('');
+  const [modalOpen, setOpenModal] = useState('');
+
+  const openNewModal = (modalName: string) => {
     setTarget('modal-component-wrapper');
-    setIsOpen(true);
+    if (modalName) {
+      setOpenModal(modalName);
+    }
   };
-  const openCardModal = () => {
-    setTarget('cardnew');
-    setIsOpen(true);
+
+  const closeModal = () => {
+    setOpenModal('');
   };
 
   return (
     <div className="card">
-      <header>
-        <h1>WELCOME TO YOUR PORTAL EXERCISE</h1>
-      </header>
-      <section>
-        <p>
-          We are going to learn how to use Portals to build a modal component
-          for your app!
-        </p>
-      </section>
-
       <footer>
-        <p>Lets try it out!</p>
         <div>
-          <button onClick={() => openBodyModal()}>Open Body Modal</button>
-          <button onClick={() => openCardModal()}>Open Card Modal</button>
+          <button onClick={() => openNewModal('modal1')}>
+            Open Body Modal
+          </button>
+          <button onClick={() => openNewModal('modal2')}>
+            Open Card Modal
+          </button>
         </div>
       </footer>
       <Modal
-        isOpen={isOpen}
-        handleClose={() => setIsOpen(false)}
+        isOpen={modalOpen === 'modal1'}
+        handleClose={closeModal}
         targetContainer={target}
       >
-        This is our Modal!
+        This is our Moda
+      </Modal>
+
+      <Modal
+        isOpen={modalOpen === 'modal2'}
+        handleClose={closeModal}
+        targetContainer={target}
+      >
+        This is our Moda 2
       </Modal>
     </div>
   );

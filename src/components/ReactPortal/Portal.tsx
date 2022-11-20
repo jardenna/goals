@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 function createWrapperAndAppendToBody(wrapperId: string) {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
-  document.body.appendChild(wrapperElement);
+  document.body.append(wrapperElement);
   return wrapperElement;
 }
 
