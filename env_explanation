@@ -1,0 +1,4 @@
+USER_PASSWORD = MongoDb Name
+API_KEY MongoDb API API_KEY
+Projectname: The name of the database
+ACCESS_TOKEN_SECRET: Random generated string
