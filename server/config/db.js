@@ -1,9 +1,8 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const db =
-  `mongodb+srv://${process.env.CALLED_NAME}:${process.env.API_KEY}@cluster0.pimzw.mongodb.net/goals?retryWrites=true&w=majority` ||
-  'mongodb://localhost/${ process.env.CALLED_NAME}';
+const db = `mongodb+srv://helle:ipe5DFJrcLPPud1K@cluster0-pimzw.mongodb.net/goals?retryWrites=true&w=majority`;
+
 const connectDB = async () => {
   try {
     await mongoose.connect(db);
