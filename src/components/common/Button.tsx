@@ -2,8 +2,8 @@
 import { FC } from 'react';
 
 interface IButtons {
-  className: string;
   btnText?: string | number;
+  className?: string;
   id?: string;
   onClick?: () => void;
   type?: 'submit' | 'reset';

@@ -1,9 +1,9 @@
-import { BlurEventType, ChangeEventType, FormEventType } from './events';
+import { BlurEventType, ChangeInputType, FormEventType } from './events';
 
 export interface FormProps {
   btnText: string;
   inputs: InputListProps[];
-  onChange: (e: ChangeEventType) => void;
+  onChange: (e: ChangeInputType) => void;
   onSubmit: (e: FormEventType) => void;
   btnVaiant?: string;
   className?: string;
@@ -25,7 +25,7 @@ export interface InputListProps {
   type?: string;
 }
 export interface InputProps extends InputListProps {
-  onChange: (e: ChangeEventType) => void;
+  onChange: (e: ChangeInputType) => void;
   onBlur?: (e: BlurEventType) => void;
 }
 

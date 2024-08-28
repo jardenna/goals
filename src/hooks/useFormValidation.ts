@@ -1,84 +1,82 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 import {
-  ChangeEventType,
   FormEventType,
   BlurEventType,
+  ChangeInputType,
 } from '../interfaces/events';
 import { KeyValuePair } from '../interfaces/interfaces';
 
-export type initialValType = { [key: string]: string };
-function useFormValidation(
-  initialState: KeyValuePair<string>,
-  callback: (values: KeyValuePair<string>) => void,
-  validate?: (initialState: initialValType) => initialValType,
+function useFormValidation<T extends string>(
+  initialState: KeyValuePair<T>,
+  callback: (values: KeyValuePair<T>) => void,
+  validate?: (values: KeyValuePair<T>) => KeyValuePair<string>,
 ) {
-  const [values, setValues] = React.useState(initialState);
-  const [errors, setErrors] = React.useState({});
-  const [touched, setTouched] = React.useState<string[]>([]);
-  const [isSubmitting, setSubmitting] = React.useState(false);
+  const [values, setValues] = useState<KeyValuePair<T>>(initialState);
+  const [errors, setErrors] = useState<KeyValuePair<string>>({});
+  const [touched, setTouched] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
         setTouched([]);
       }
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   }, [errors]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (validate) {
-      const validationErrors = validate && validate(values);
-      const touchedErrors = Object.keys(validationErrors)
-        .filter((key) => touched.includes(key)) // get all touched keys
-        .reduce((acc: { [key: string]: string }, key) => {
-          if (!acc[key]) {
-            // eslint-disable-next-line no-param-reassign
-            acc[key] = validationErrors[key];
-          }
-          return acc;
-        }, {});
+      const validationErrors = validate(values);
+      const touchedErrors = touched.reduce<KeyValuePair<string>>((acc, key) => {
+        if (validationErrors[key] && !acc[key]) {
+          // eslint-disable-next-line no-param-reassign
+          acc[key] = validationErrors[key];
+        }
+        return acc;
+      }, {});
       setErrors(touchedErrors);
     }
-  }, [touched, values]);
+  }, [touched, values, validate]);
 
-  function handleChange(e: ChangeEventType) {
-    const { name, value } = e.target;
+  function onChange(event: ChangeInputType) {
+    const { name, value } = event.target;
 
-    // dispatch(blurErrors(name));
     setValues({
       ...values,
-      [name]: value,
+      [name]: value as T,
     });
   }
+
   const onClearAll = () => {
     setValues(initialState);
   };
-  const handleBlur = (e: BlurEventType) => {
-    const { name } = e.target;
+
+  const onBlur = (event: BlurEventType) => {
+    const { name } = event.target;
     if (!touched.includes(name)) {
       setTouched([...touched, name]);
     }
   };
 
-  const handleSubmit = (e: FormEventType) => {
-    e.preventDefault();
+  const onSubmit = (event: FormEventType) => {
+    event.preventDefault();
 
     if (validate) {
       const validationErrors = validate(values);
       setErrors(validationErrors);
     }
 
-    setSubmitting(true);
+    setIsSubmitting(true);
     callback(values);
   };
 
   return {
-    handleSubmit,
-    handleChange,
-    handleBlur,
+    onSubmit,
+    onChange,
+    onBlur,
     values,
     errors,
     onClearAll,

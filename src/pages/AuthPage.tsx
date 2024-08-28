@@ -31,7 +31,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAuth();
   const [passwordErr, setPasswordErr] = useState('');
-  const handleRegister = async () => {
+  const onRegister = async () => {
     const equalPasswords = password === password2;
 
     if (equalPasswords) {
@@ -44,13 +44,13 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
     }
   };
 
-  const handleLogin = () => {
+  const onLogin = () => {
     dispatch(login(values));
   };
 
   const isLoginPage = id === PageId.Login;
-  const callBackFn = isLoginPage ? handleLogin : handleRegister;
-  const { values, handleChange, handleSubmit, onClearAll } = useFormValidation(
+  const callBackFn = isLoginPage ? onLogin : onRegister;
+  const { values, onChange, onSubmit, onClearAll } = useFormValidation(
     initialState,
     callBackFn,
   );
@@ -115,9 +115,9 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
       {isError?.noUser}
       <Form
         inputs={inputs}
-        onChange={handleChange}
+        onChange={onChange}
         btnText={isLoginPage ? 'Login' : 'Register'}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         onClearAll={onClearAll}
         onBlur={onBlur}
       />

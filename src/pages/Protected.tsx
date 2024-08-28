@@ -33,7 +33,7 @@ const Protected = () => {
     };
   }, [dispatch]);
 
-  const handleSubmitGoals = () => {
+  const onSubmitGoals = () => {
     if (values.text === '' && isAuthenticated) {
       setErrorText('Please add a goal');
     }
@@ -43,9 +43,9 @@ const Protected = () => {
   };
 
   const initialValues = { text: '', title: '' };
-  const { values, handleChange, handleSubmit } = useFormValidation(
+  const { values, onChange, onSubmit } = useFormValidation(
     initialValues,
-    handleSubmitGoals,
+    onSubmitGoals,
   );
 
   const inputs: InputListProps[] = [
@@ -74,9 +74,9 @@ const Protected = () => {
       <header>Protected</header>
       <Form
         inputs={inputs}
-        onChange={handleChange}
+        onChange={onChange}
         btnText="Send"
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       />
 
       <div className="card-container">

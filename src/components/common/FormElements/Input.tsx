@@ -1,8 +1,5 @@
 import { FC } from 'react';
-
 import { InputProps } from '../../../interfaces/form';
-
-import Label from './Label';
 import Error from '../../common/Error';
 
 const Input: FC<InputProps> = ({
@@ -24,7 +21,7 @@ const Input: FC<InputProps> = ({
       name={name}
       value={value !== null ? value : ''}
       id={inputIdentifier}
-      placeholder={placeholder}
+      // placeholder={placeholder}
       onChange={onChange}
       onBlur={onBlur}
       className={error ? 'input-error' : ''}
