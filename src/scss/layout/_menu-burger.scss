@@ -1,5 +1,5 @@
-$burgerColor: $color-primary-link;
-$burgerColorActive: $color-primary-link;
+$burger-color: $color-primary-link;
+$burger-color-active: $color-primary-link;
 
 .menu-btn-wrapper {
   position: fixed;
@@ -13,7 +13,7 @@ $burgerColorActive: $color-primary-link;
   display: none;
   background: none;
 
-  @include mQ($small) {
+  @include mq-sizes($small) {
     display: flex;
   }
 }
@@ -24,32 +24,34 @@ $burgerColorActive: $color-primary-link;
   align-items: center;
   width: 80px;
 
-  @include transition();
+  @include transition;
 }
 
 .menu-btn-burger {
   width: 37px;
   height: 3px;
-  background-color: $burgerColor;
+  background-color: $burger-color;
   border-radius: 5px;
-  @include transition();
 
-  &:before,
-  &:after {
+  @include transition;
+
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     width: inherit;
     height: inherit;
-    background-color: $burgerColor;
+    background-color: $burger-color;
     border-radius: inherit;
-    @include transition();
+
+    @include transition;
   }
 
-  &:before {
+  &::before {
     transform: translateY(-8px);
   }
 
-  &:after {
+  &::after {
     transform: translateY(8px);
   }
 }
@@ -64,17 +66,17 @@ $burgerColorActive: $color-primary-link;
     transform: translateX(-50px);
     background: transparent;
 
-    &:before,
-    &:after {
-      background-color: $burgerColorActive;
+    &::before,
+    &::after {
+      background-color: $burger-color-active;
       width: 20px;
     }
 
-    &:before {
+    &::before {
       transform: rotate(45deg) translate(35px, -35px);
     }
 
-    &:after {
+    &::after {
       transform: rotate(-45deg) translate(35px, 35px);
     }
   }

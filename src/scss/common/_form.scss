@@ -1,6 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 100px white inset;
+  box-shadow: 0 0 0 100px white inset;
 }
+
 form {
   position: relative;
   margin-bottom: 20px;
@@ -33,17 +35,12 @@ form {
   background: #d3d3d33b;
 }
 
-.ordinary {
-  label {
-    position: relative;
-  }
-}
-
 label {
   top: 20px;
   left: 0;
   margin-top: 10px;
   position: absolute;
+
   @include transition($time: 0.3s);
 
   &.top {
@@ -61,7 +58,6 @@ textarea {
   background-color: $color-white;
   margin: 25px 0;
   color: $color-primary;
-
 
   &:focus {
     background-color: $color-gray-light;
@@ -90,10 +86,9 @@ fieldset {
 }
 
 .required {
-  &:after {
+  &::after {
     content: '*';
     color: $color-danger;
-
     position: absolute;
     top: 0;
     right: -9px;

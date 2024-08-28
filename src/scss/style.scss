@@ -1,8 +1,7 @@
 @import 'variables/fonts';
-@import 'variables/mq';
+@import 'variables/mq-sizes';
 @import 'variables/colors';
 @import 'variables/mixins';
-
 @import 'common/form';
 @import 'common/loader';
 @import 'common/buttons';
@@ -10,6 +9,5 @@
 @import 'layout/menu-burger';
 @import 'layout/nav';
 @import 'layout/page';
-
 @import 'main';
 @import 'card';

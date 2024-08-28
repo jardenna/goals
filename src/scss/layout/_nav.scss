@@ -1,5 +1,5 @@
-$burgerColor: $color-gray;
-$burgerColorActive: $color-primary;
+$burger-color: $color-gray;
+$burger-color-active: $color-primary;
 
 .sticky {
   position: sticky;
@@ -8,26 +8,30 @@ $burgerColorActive: $color-primary;
 }
 
 .open-nav {
-  @include transition();
+  @include transition;
 
   &.main-nav {
-    @include mQ($small) {
+    @include mq-sizes($small) {
       right: 0;
-      background-color: rgba(245, 246, 246, 0.9);
+      background-color: rgb(245 246 246 / 90%);
     }
   }
 }
+
 .nav-container {
   margin-top: 70px;
 }
+
 .main-nav {
   width: 100%;
   text-align: right;
   margin: 0;
 
-  @include mQ($small) {
+  @include mq-sizes($small) {
     text-align: left;
-    @include transition();
+
+    @include transition;
+
     position: fixed;
     right: -200px;
     top: 0;
@@ -40,15 +44,17 @@ $burgerColorActive: $color-primary;
     font-size: 14px;
     margin-right: 10px;
     display: inline-block;
+
     a {
       color: $color-primary-link;
+
       &.active {
         color: $color-primary-link-hover;
         text-decoration: underline;
       }
     }
 
-    @include mQ($small) {
+    @include mq-sizes($small) {
       margin: 20px;
       display: block;
     }
