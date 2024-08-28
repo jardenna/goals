@@ -4,10 +4,10 @@ import Home from '../pages/Home';
 import PageNotFound from '../pages/PageNotFound';
 import Protected from '../pages/Protected';
 import Users from '../pages/Users';
-import { PageId } from '../types/types';
+import PageId from '../types/types';
 import PrivateRoute from './PrivateRoute';
 
-export const routeConfig: RouteObject[] = [
+const routeConfig: RouteObject[] = [
   {
     path: '/',
     element: <Home title="Home" />,
@@ -30,3 +30,5 @@ export const routeConfig: RouteObject[] = [
     ],
   },
 ];
+
+export default routeConfig;

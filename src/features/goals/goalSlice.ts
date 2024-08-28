@@ -1,20 +1,21 @@
-import { RootState } from '../../app/store';
+/* eslint-disable consistent-return */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
 
-import { goalsUrl } from '../../utils/endpoints';
-import fetchApi from '../../utils/fetchApi';
 import { GoalErrorState, goalErrObj } from '../../utils/utils';
 import { KeyValuePair } from '../../interfaces/interfaces';
+import { goalsUrl } from '../../utils/endpoints';
+import fetchApi from '../../utils/fetchApi';
 
 interface goals {
   _id: string;
-  title: string;
   text: string;
+  title: string;
 }
 interface GoalsState {
   goals: goals[];
-  isLoading: boolean;
   isError: GoalErrorState;
+  isLoading: boolean;
 }
 
 const initialState = {
@@ -23,7 +24,7 @@ const initialState = {
   isLoading: false,
 } as GoalsState;
 
-//Get goals
+// Get goals
 
 export const getGoals = createAsyncThunk(
   'goals/getGoals',
@@ -33,7 +34,7 @@ export const getGoals = createAsyncThunk(
     if (token.auth.isAuthenticated) {
       return response;
     }
-  }
+  },
 );
 
 export const createGoals = createAsyncThunk(
@@ -45,7 +46,7 @@ export const createGoals = createAsyncThunk(
     if (token.auth.isAuthenticated) {
       return response;
     }
-  }
+  },
 );
 
 export const goalSlice = createSlice({

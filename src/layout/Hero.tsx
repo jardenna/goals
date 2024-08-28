@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 interface HeroProps {}
 const Hero: FC<HeroProps> = () => (
   <section className="hero flex">

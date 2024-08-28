@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import Card from '../components/common/Card';
@@ -44,7 +45,7 @@ const Protected = () => {
   const initialValues = { text: '', title: '' };
   const { values, handleChange, handleSubmit } = useFormValidation(
     initialValues,
-    handleSubmitGoals
+    handleSubmitGoals,
   );
 
   const inputs: InputListProps[] = [

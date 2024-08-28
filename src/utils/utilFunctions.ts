@@ -1,10 +1,10 @@
 import { KeyValuePair } from '../interfaces/interfaces';
 
-//Sort function
-export const sortFunction = (
+// Sort function
+const sortFunction = (
   arr: KeyValuePair<any>[],
   key: string,
-  desending = false
+  desending = false,
 ) =>
   [...arr].sort((a, b) => {
     if (desending) {
@@ -12,3 +12,5 @@ export const sortFunction = (
     }
     return b[key].localeCompare(a[key]);
   });
+
+export default sortFunction;

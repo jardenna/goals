@@ -1,6 +1,5 @@
 import { FC } from 'react';
+
 interface UsersProps {}
-const Users: FC<UsersProps> = () => {
-  return <article>I am protected</article>;
-};
+const Users: FC<UsersProps> = () => <article>I am protected</article>;
 export default Users;

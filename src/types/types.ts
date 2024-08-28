@@ -1,4 +1,6 @@
-export enum PageId {
-  Register = 'register',
+enum PageId {
   Login = 'login',
+  Register = 'register',
 }
+
+export default PageId;

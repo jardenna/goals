@@ -1,5 +1,4 @@
-const localStorageMiddleware = ({ getState }: any) => {
-  return (next: (arg0: any) => any) => (action: any) => {
+const localStorageMiddleware = ({ getState }: any) => (next: (arg0: any) => any) => (action: any) => {
     const result = next(action);
     localStorage.setItem(
       'isAuthenticated',
@@ -7,6 +6,5 @@ const localStorageMiddleware = ({ getState }: any) => {
     );
     return result;
   };
-};
 
 export default localStorageMiddleware;

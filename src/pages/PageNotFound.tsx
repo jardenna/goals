@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+
 interface PageNotFoundProps {}
 const PageNotFound: FC<PageNotFoundProps> = () => (
   <article>

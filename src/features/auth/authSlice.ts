@@ -1,25 +1,27 @@
-import { RootState } from './../../app/store';
+/* eslint-disable no-underscore-dangle */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
-import fetchApi from '../../utils/fetchApi';
+import { RootState } from '../../app/store';
+
 import { KeyValuePair } from '../../interfaces/interfaces';
 import errorObj from '../../utils/utils';
+import { signupUrl, loginUrl, logoutUrl, userUrl } from '../../utils/endpoints';
+import fetchApi from '../../utils/fetchApi';
 
 interface User {
+  _id: string;
   createdAt: string;
   email: string;
   name: string;
   password: string;
   pic: string;
   updatedAt: string;
-  _id: string;
 }
 
 interface UsersState {
   isAuthenticated: boolean;
-  user: User | null;
-  isLoading: boolean;
   isError: any;
+  isLoading: boolean;
+  user: User | null;
 }
 const initialState = {
   isAuthenticated: false,
@@ -28,13 +30,13 @@ const initialState = {
   isError: errorObj,
 } as UsersState;
 
-//Register user
+// Register user
 export const register = createAsyncThunk(
   'auth/register',
   async (user: KeyValuePair<string>) => {
     const response = await fetchApi('post', signupUrl, user);
     return response;
-  }
+  },
 );
 
 export const login = createAsyncThunk(
@@ -42,7 +44,7 @@ export const login = createAsyncThunk(
   async (formData: KeyValuePair<string>) => {
     const response = await fetchApi('post', loginUrl, formData);
     return response;
-  }
+  },
 );
 
 export const logout = createAsyncThunk('auth/logout', async () => {
@@ -79,7 +81,7 @@ export const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;
-        state.isAuthenticated = action.payload?.user?._id ? true : false;
+        state.isAuthenticated = !!action.payload?.user?._id;
         state.isError = action.payload.errors;
       })
       .addCase(login.pending, (state) => {
@@ -88,7 +90,7 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;
-        state.isAuthenticated = action.payload?.user?._id ? true : false;
+        state.isAuthenticated = !!action.payload?.user?._id;
         state.isError = action.payload.errors;
       })
 
@@ -102,7 +104,7 @@ export const authSlice = createSlice({
       .addCase(currentUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-        state.isAuthenticated = action.payload?.status ? false : true;
+        state.isAuthenticated = !action.payload?.status;
       });
   },
 });

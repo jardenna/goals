@@ -1,5 +1,5 @@
-import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Header = () => (
   <header className="flex">

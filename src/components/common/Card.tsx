@@ -1,25 +1,20 @@
 import { FC } from 'react';
-import { useAppDispatch } from '../../app/hooks';
 
 interface CardProps {
-  title: string;
   content: string;
   id: string;
+  title: string;
 }
-const Card: FC<CardProps> = ({ content, title, id }) => {
-  const dispatch = useAppDispatch();
-  return (
-    <section className="card">
-      <h2>{title}</h2>
-      {content}
-      <span className="sr-only">Delete Goal</span>
-      <span
-        role="button"
-        tabIndex={0}
-        className="btn-close"
-        // onClick={() => dispatch(deleteGoal(id))}
-      />
-    </section>
-  );
-};
+
+const Card: FC<CardProps> = ({ content, title, id }) => (
+  <section className="card">
+    <h2>{title}</h2>
+    {content}
+
+    <button type="button" className="btn-close" onClick={() => console.log(id)}>
+      Klik
+    </button>
+  </section>
+);
+
 export default Card;

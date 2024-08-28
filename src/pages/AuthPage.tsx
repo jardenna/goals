@@ -1,12 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 
+import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../app/hooks';
 
 import useFormValidation from '../hooks/useFormValidation';
 
 import { PageProps } from '../interfaces/interfaces';
 import { InputListProps } from '../interfaces/form';
-import { PageId } from '../types/types';
+import PageId from '../types/types';
 
 import {
   register,
@@ -18,7 +19,6 @@ import {
 import useAuth from '../hooks/useAuth';
 import Form from '../components/common/FormElements/Form';
 import { BlurEventType } from '../interfaces/events';
-import { NavLink } from 'react-router-dom';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();
@@ -52,7 +52,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
   const callBackFn = isLoginPage ? handleLogin : handleRegister;
   const { values, handleChange, handleSubmit, onClearAll } = useFormValidation(
     initialState,
-    callBackFn
+    callBackFn,
   );
   const { name, email, password, password2 } = values;
   useEffect(() => {

@@ -6,11 +6,12 @@ import {
   BlurEventType,
 } from '../interfaces/events';
 import { KeyValuePair } from '../interfaces/interfaces';
+
 export type initialValType = { [key: string]: string };
 function useFormValidation(
   initialState: KeyValuePair<string>,
   callback: (values: KeyValuePair<string>) => void,
-  validate?: (initialState: initialValType) => initialValType
+  validate?: (initialState: initialValType) => initialValType,
 ) {
   const [values, setValues] = React.useState(initialState);
   const [errors, setErrors] = React.useState({});
@@ -34,6 +35,7 @@ function useFormValidation(
         .filter((key) => touched.includes(key)) // get all touched keys
         .reduce((acc: { [key: string]: string }, key) => {
           if (!acc[key]) {
+            // eslint-disable-next-line no-param-reassign
             acc[key] = validationErrors[key];
           }
           return acc;

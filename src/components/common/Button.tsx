@@ -1,16 +1,17 @@
+/* eslint-disable react/button-has-type */
 import { FC } from 'react';
+
 interface IButtons {
-  type?: 'submit' | 'reset';
-  id?: string;
   className: string;
-  onClick?: () => void;
-  btnVaiant?: string;
   btnText?: string | number;
+  id?: string;
+  onClick?: () => void;
+  type?: 'submit' | 'reset';
 }
 
 const Button: FC<IButtons> = (props) => (
   <button
-    type={props.type}
+    type={props.type || 'button'}
     id={props.id}
     className={props.className}
     onClick={props.onClick}

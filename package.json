@@ -6,6 +6,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "start": "concurrently -n 'server,dev' -c 'green,blue' \"nodemon  server\" \"npm run dev\"",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
+    "prepare": "husky",
     "server": "nodemon server.js"
   },
   "author": "Helle J Bjørnum",

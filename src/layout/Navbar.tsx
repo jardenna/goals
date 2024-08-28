@@ -34,11 +34,9 @@ const Navbar = () => {
     setOpenNav((openNav) => !openNav);
   };
   const guestLinks = (
-    <>
-      <li className="nav-item flex-item">
+    <li className="nav-item flex-item">
         <NavLink to="/login">Login</NavLink>
       </li>
-    </>
   );
   const logoutUser = () => {
     dispatch(logout());
@@ -54,7 +52,7 @@ const Navbar = () => {
     </>
   );
 
-  //open-nav
+  // open-nav
   return (
     <nav className={`main-nav flex-item ${openNav ? 'open-nav' : ''}`}>
       {isAuthenticated && <span>Welcome {user?.name}</span>}

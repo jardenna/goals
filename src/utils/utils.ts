@@ -1,9 +1,9 @@
 export interface ErrorObjState {
-  name?: string;
   email: string;
   password: string;
-  password2?: string;
+  name?: string;
   noUser?: string;
+  password2?: string;
 }
 
 const errorObj = {

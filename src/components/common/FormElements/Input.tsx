@@ -30,12 +30,12 @@ const Input: FC<InputProps> = ({
       className={error ? 'input-error' : ''}
       checked={checked}
     />
-    <Label
+    {/* <Label
       className={value && value !== '' ? 'top' : ''}
       htmlFor={inputIdentifier}
       isRequired={isRequired}
       label={label || ''}
-    />
+    /> */}
 
     {error && <Error text={error} />}
   </div>

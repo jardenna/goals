@@ -1,28 +1,28 @@
 import { BlurEventType, ChangeEventType, FormEventType } from './events';
 
 export interface FormProps {
-  btnVaiant?: string;
   btnText: string;
-  className?: string;
-  onSubmit: (e: FormEventType) => void;
   inputs: InputListProps[];
+  onChange: (e: ChangeEventType) => void;
+  onSubmit: (e: FormEventType) => void;
+  btnVaiant?: string;
+  className?: string;
+  hidden?: boolean;
+  onBlur?: (e: BlurEventType) => void;
   onClearAll?: () => void;
   showResetButton?: boolean;
-  onChange: (e: ChangeEventType) => void;
-  onBlur?: (e: BlurEventType) => void;
-  hidden?: boolean;
 }
 export interface InputListProps {
+  inputIdentifier: string;
+  label: string;
   name: string;
   value: string;
-  label: string;
-  inputIdentifier: string;
-  placeholder?: string;
-  error?: string;
-  isRequired?: boolean;
-  type?: string;
   checked?: boolean;
+  error?: string;
   hidden?: boolean;
+  isRequired?: boolean;
+  placeholder?: string;
+  type?: string;
 }
 export interface InputProps extends InputListProps {
   onChange: (e: ChangeEventType) => void;
@@ -33,6 +33,6 @@ export interface ILabel {
   className: string;
   htmlFor: string;
   label: string;
-  text?: string;
   isRequired?: boolean;
+  text?: string;
 }

@@ -16,12 +16,11 @@ const Form: FC<FormProps> = ({
   showResetButton,
   onBlur,
 }) => {
-  const btnClass = `btn-${btnVaiant ? btnVaiant : 'primary'}`;
+  const btnClass = `btn-${btnVaiant || 'primary'}`;
 
   return (
     <form onSubmit={onSubmit} noValidate className={className}>
-      {inputs.map((input) => {
-        return (
+      {inputs.map((input) => (
           <Fragment key={input.inputIdentifier}>
             {input.type !== 'textarea' ? (
               !input.hidden && (
@@ -50,8 +49,7 @@ const Form: FC<FormProps> = ({
               />
             )}
           </Fragment>
-        );
-      })}
+        ))}
 
       <footer className="form-footer">
         <Button type="submit" className={btnClass} btnText={btnText} />
@@ -59,7 +57,7 @@ const Form: FC<FormProps> = ({
           <Button
             type="reset"
             className={btnClass}
-            btnText={'Clear'}
+            btnText="Clear"
             onClick={onClearAll}
           />
         )}

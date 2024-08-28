@@ -4,11 +4,16 @@ interface IMenuBurger {
   onClick: () => void;
 }
 const MenuBurger: FC<IMenuBurger> = ({ onClick }) => (
-  <div className="menu-btn-wrapper" onClick={onClick}>
+  <button
+    type="button"
+    className="menu-btn-wrapper"
+    onClick={onClick}
+    aria-label="toggle menu"
+  >
     <span className="menu-btn">
       <span className="menu-btn-burger" />
     </span>
-  </div>
+  </button>
 );
 
 export default MenuBurger;
