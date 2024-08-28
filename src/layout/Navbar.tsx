@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../app/hooks';
+import MenuBurger from '../components/MenuBurger';
 import { logout } from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
-import MenuBurger from '../components/common/MenuBurger';
 
 type LocationProps = {
   state: {
@@ -35,8 +35,8 @@ const Navbar = () => {
   };
   const guestLinks = (
     <li className="nav-item flex-item">
-        <NavLink to="/login">Login</NavLink>
-      </li>
+      <NavLink to="/login">Login</NavLink>
+    </li>
   );
   const logoutUser = () => {
     dispatch(logout());

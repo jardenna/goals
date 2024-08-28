@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { InputProps } from '../../../interfaces/form';
-import Error from '../../common/Error';
+import { InputProps } from '../../interfaces/form';
 
 const Input: FC<InputProps> = ({
   type,
@@ -19,22 +18,20 @@ const Input: FC<InputProps> = ({
     <input
       type={type || 'text'}
       name={name}
-      value={value !== null ? value : ''}
+      value={value}
       id={inputIdentifier}
-      // placeholder={placeholder}
+      placeholder={placeholder}
       onChange={onChange}
       onBlur={onBlur}
       className={error ? 'input-error' : ''}
       checked={checked}
     />
-    {/* <Label
-      className={value && value !== '' ? 'top' : ''}
-      htmlFor={inputIdentifier}
-      isRequired={isRequired}
-      label={label || ''}
-    /> */}
 
-    {error && <Error text={error} />}
+    <label htmlFor={inputIdentifier} className={value ? 'input-has-value' : ''}>
+      {label} {isRequired && <span className="required" />}
+    </label>
+
+    {error && <div>{error}</div>}
   </div>
 );
 

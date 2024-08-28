@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import { FormProps } from '../../../interfaces/form';
+import { FormProps } from '../../interfaces/form';
 import Button from '../Button';
 import Input from './Input';
 

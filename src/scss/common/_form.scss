@@ -41,11 +41,11 @@ label {
   margin-top: 10px;
   position: absolute;
 
-  @include transition($time: 0.3s);
-
-  &.top {
-    top: 0;
+  &.input-has-value {
+    top: -8px;
   }
+
+  @include transition($time: 0.3s);
 }
 
 input,

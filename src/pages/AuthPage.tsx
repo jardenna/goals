@@ -5,19 +5,19 @@ import { useAppDispatch } from '../app/hooks';
 
 import useFormValidation from '../hooks/useFormValidation';
 
-import { PageProps } from '../interfaces/interfaces';
 import { InputListProps } from '../interfaces/form';
+import { PageProps } from '../interfaces/interfaces';
 import PageId from '../types/types';
 
+import Form from '../components/FormElements/Form';
 import {
-  register,
-  login,
-  reset,
-  clearErrors,
   blurErrors,
+  clearErrors,
+  login,
+  register,
+  reset,
 } from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
-import Form from '../components/common/FormElements/Form';
 import { BlurEventType } from '../interfaces/events';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {

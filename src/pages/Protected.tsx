@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import Card from '../components/common/Card';
-import Form from '../components/common/FormElements/Form';
+import Card from '../components/Card';
+import Form from '../components/FormElements/Form';
 import {
   createGoals,
   getGoals,
