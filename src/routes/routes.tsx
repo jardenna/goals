@@ -2,7 +2,7 @@ import { RouteObject } from 'react-router-dom';
 import AuthPage from '../pages/AuthPage';
 import Home from '../pages/HomePage';
 import PageNotFound from '../pages/PageNotFound';
-import Users from '../pages/Users';
+import Protected from '../pages/ProtectedPage';
 import PageId from '../types/types';
 import PrivateRoute from './PrivateRoute';
 
@@ -23,7 +23,7 @@ const routeConfig: RouteObject[] = [
   {
     path: '/',
     element: <PrivateRoute />,
-    children: [{ path: '/users', element: <Users /> }],
+    children: [{ path: '/protected', element: <Protected /> }],
   },
 ];
 

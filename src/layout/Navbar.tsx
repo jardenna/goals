@@ -59,9 +59,6 @@ const Navbar = () => {
       <MenuBurger onClick={onToggleMenu} />
       <ul className="nav-container">
         <li className="nav-item flex-item">
-          <NavLink to="/users">Users</NavLink>
-        </li>
-        <li className="nav-item flex-item">
           <NavLink to="/">Home</NavLink>
         </li>
         {isAuthenticated ? authLinks : guestLinks}
