@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Poiret+One&display=swap';
 
 @font-face {
-  font-family: 'openSans';
-  src: url('/public/fonts/OpenSans-Regular.ttf');
-
+  font-family: 'open_sansregular';
+  src:
+    url('fonts/opensans-variablefont_wdthwght-webfont.woff2') format('woff2'),
+    url('fonts/opensans-variablefont_wdthwght-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'walkway';
-  src: url('/public/fonts/walkway_expand_bold-webfont.eot');
-
+  font-family: 'poiret_oneregular';
+  src:
+    url('fonts/poiretone-regular-webfont.woff2') format('woff2'),
+    url('fonts/poiretone-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-$font-primary: open sans, sans-serif;
-$font-secondary: walkway, sans-serif;
-
-$font-logo: 'Poiret One', cursive, sans-serif;
+$font-primary: open_sansregular, sans-serif;
+$font-logo: 'poiret_oneregular', cursive, sans-serif;

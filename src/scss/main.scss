@@ -3,7 +3,7 @@
 }
 
 :root {
-  --focus: 1px dotted #000000;
+  --focus: 1px dotted #000;
 }
 
 body {
@@ -15,14 +15,10 @@ body {
   color: $color-primary;
 }
 
-h1,
-h2 {
-  font-family: $font-secondary;
-}
-
 h2 {
   font-size: 16px;
 }
+
 a {
   color: $color-primary-btn;
   text-decoration: none;
@@ -60,7 +56,7 @@ form {
 }
 
 .flex {
-  @include flexbox();
+  @include flexbox;
 }
 
 .flex-grow-1 {
@@ -70,6 +66,7 @@ form {
 svg {
   width: 20px;
 }
+
 .sr-only {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
