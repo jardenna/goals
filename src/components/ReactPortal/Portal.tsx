@@ -17,7 +17,7 @@ const Portal: FC<PortalProps> = ({
   wrapperId = 'react-portal-wrapper',
 }) => {
   const [wrapperElement, setWrapperElement] = useState<HTMLElement | null>(
-    null
+    null,
   );
 
   useLayoutEffect(() => {
