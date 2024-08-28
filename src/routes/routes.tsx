@@ -1,8 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 import AuthPage from '../pages/AuthPage';
-import Home from '../pages/Home';
+import Home from '../pages/HomePage';
 import PageNotFound from '../pages/PageNotFound';
-import Protected from '../pages/Protected';
 import Users from '../pages/Users';
 import PageId from '../types/types';
 import PrivateRoute from './PrivateRoute';
@@ -24,10 +23,7 @@ const routeConfig: RouteObject[] = [
   {
     path: '/',
     element: <PrivateRoute />,
-    children: [
-      { path: '/protected', element: <Protected /> },
-      { path: '/users', element: <Users /> },
-    ],
+    children: [{ path: '/users', element: <Users /> }],
   },
 ];
 
