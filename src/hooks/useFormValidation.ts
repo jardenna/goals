@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import {
-  FormEventType,
   BlurEventType,
   ChangeInputType,
+  FormEventType,
 } from '../interfaces/events';
 import { KeyValuePair } from '../interfaces/interfaces';
 

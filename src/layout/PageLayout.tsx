@@ -4,7 +4,7 @@ import { useRoutes } from 'react-router-dom';
 import Header from './Header';
 import Hero from './Hero';
 
-import routeConfig from '../routes/routes';
+import routeConfig from '../routes/routeConfig';
 
 const PageLayout: FC = () => {
   const element = useRoutes(routeConfig);
