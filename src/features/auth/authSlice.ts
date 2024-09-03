@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-
 import { KeyValuePair } from '../../interfaces/interfaces';
 import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
@@ -17,7 +16,7 @@ export interface User {
   updatedAt: string;
 }
 
-interface UsersState {
+export interface UsersState {
   isAuthenticated: boolean;
   isError: any;
   isLoading: boolean;

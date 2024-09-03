@@ -14,7 +14,7 @@ interface Goals {
   text: string;
   title: string;
 }
-interface GoalsState {
+export interface GoalsState {
   goals: Goals[];
   isError: GoalErrorState;
   isLoading: boolean;

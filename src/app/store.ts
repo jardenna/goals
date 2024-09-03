@@ -1,18 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import auth from '../features/auth/authSlice';
-import goals from '../features/goals/goalSlice';
-import localStorageMiddleware from './middleware/localStorageMiddleware';
+import authReducer from '../features/auth/authSlice';
+import goalsReducer from '../features/goals/goalSlice';
 
-const reducer = {
-  goals,
-  auth,
+const reducers = {
+  auth: authReducer,
+  goals: goalsReducer,
 };
 
 export const store = configureStore({
-  reducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(localStorageMiddleware),
+  reducer: reducers,
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
