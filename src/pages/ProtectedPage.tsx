@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import Card from '../components/Card';
-import Form from '../components/FormElements/Form';
+import Form, { InputListProps } from '../components/FormElements/Form';
 import {
   createGoals,
   getGoals,
@@ -12,7 +12,6 @@ import {
 
 import useAuth from '../hooks/useAuth';
 import useFormValidation from '../hooks/useFormValidation';
-import { InputListProps } from '../interfaces/form';
 
 const Protected = () => {
   const { goals, isError } = useAppSelector(selectGoals);

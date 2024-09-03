@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
+import { KeyValuePair } from '../interfaces/interfaces';
 import {
   BlurEventType,
   ChangeInputType,
   FormEventType,
-} from '../interfaces/events';
-import { KeyValuePair } from '../interfaces/interfaces';
+} from '../interfaces/types';
 
 function useFormValidation<T extends string>(
   initialState: KeyValuePair<T>,

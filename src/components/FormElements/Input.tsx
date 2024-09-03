@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { BlurEventType, ChangeInputType } from '../../interfaces/events';
-import { InputListProps } from '../../interfaces/form';
+import { BlurEventType, ChangeInputType } from '../../interfaces/types';
+import { InputListProps } from './Form';
 
 interface InputProps extends InputListProps {
   onChange: (e: ChangeInputType) => void;

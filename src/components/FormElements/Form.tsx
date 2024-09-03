@@ -3,10 +3,23 @@ import {
   BlurEventType,
   ChangeInputType,
   FormEventType,
-} from '../../interfaces/events';
-import { InputListProps } from '../../interfaces/form';
+  InputType,
+} from '../../interfaces/types';
 import Button from '../Button';
 import Input from './Input';
+
+export interface InputListProps {
+  inputIdentifier: string;
+  label: string;
+  name: string;
+  value: string;
+  checked?: boolean;
+  error?: string;
+  hidden?: boolean;
+  isRequired?: boolean;
+  placeholder?: string;
+  type?: InputType;
+}
 
 interface FormProps {
   btnText: string;
@@ -59,4 +72,5 @@ const Form: FC<FormProps> = ({
     </footer>
   </form>
 );
+
 export default Form;

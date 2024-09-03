@@ -6,10 +6,9 @@ import { useAppDispatch } from '../app/hooks';
 import useFormValidation from '../hooks/useFormValidation';
 
 import PageId from '../interfaces/enums';
-import { InputListProps } from '../interfaces/form';
 import { PageProps } from '../interfaces/interfaces';
 
-import Form from '../components/FormElements/Form';
+import Form, { InputListProps } from '../components/FormElements/Form';
 import {
   blurErrors,
   clearErrors,
@@ -18,7 +17,7 @@ import {
   reset,
 } from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
-import { BlurEventType } from '../interfaces/events';
+import { BlurEventType } from '../interfaces/types';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
   const { isError } = useAuth();
