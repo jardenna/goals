@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-interface HeroProps {}
-const Hero: FC<HeroProps> = () => (
+const Hero: FC = () => (
   <section className="hero flex">
     <div className="logo container">
       <Link to="/login" className="hero-link">
@@ -11,4 +10,5 @@ const Hero: FC<HeroProps> = () => (
     </div>
   </section>
 );
+
 export default Hero;

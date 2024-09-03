@@ -1,14 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import goals from '../features/goals/goalSlice';
 import auth from '../features/auth/authSlice';
-import toggleSlice from '../features/toggleElem/toggleSlice';
+import goals from '../features/goals/goalSlice';
 import localStorageMiddleware from './middleware/localStorageMiddleware';
 
 const reducer = {
   goals,
   auth,
-  toggle: toggleSlice,
 };
 
 export const store = configureStore({

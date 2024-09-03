@@ -10,4 +10,5 @@ const Home: FC<HomeProps> = ({ title }) => (
     <h1>{title}</h1>
   </article>
 );
+
 export default Home;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { KeyValuePair } from '../interfaces/interfaces';
 import {
   BlurEventType,

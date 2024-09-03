@@ -14,14 +14,12 @@ import useAuth from '../hooks/useAuth';
 import useFormValidation from '../hooks/useFormValidation';
 
 const Protected = () => {
-  const { goals, isError } = useAppSelector(selectGoals);
-
-  const initialErrorText = isError ? isError.text : '';
-
-  const [errorText, setErrorText] = useState(initialErrorText);
-
   const { isAuthenticated } = useAuth();
   const dispatch = useAppDispatch();
+  const { goals, isError } = useAppSelector(selectGoals);
+  const initialErrorText = isError ? isError.text : '';
+  const initialValues = { text: '', title: '' };
+  const [errorText, setErrorText] = useState(initialErrorText);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -41,7 +39,6 @@ const Protected = () => {
     }
   };
 
-  const initialValues = { text: '', title: '' };
   const { values, onChange, onSubmit } = useFormValidation(
     initialValues,
     onSubmitGoals,

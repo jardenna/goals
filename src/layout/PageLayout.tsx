@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { useRoutes } from 'react-router-dom';
-
 import Header from './Header';
 import Hero from './Hero';
 
@@ -22,4 +21,5 @@ const PageLayout: FC = () => {
     </article>
   );
 };
+
 export default PageLayout;

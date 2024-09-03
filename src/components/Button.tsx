@@ -19,4 +19,5 @@ const Button: FC<IButtons> = (props) => (
     {props.btnText}
   </button>
 );
+
 export default Button;

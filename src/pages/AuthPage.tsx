@@ -1,13 +1,6 @@
 import { FC, useEffect, useState } from 'react';
-
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../app/hooks';
-
-import useFormValidation from '../hooks/useFormValidation';
-
-import PageId from '../interfaces/enums';
-import { PageProps } from '../interfaces/interfaces';
-
 import Form, { InputListProps } from '../components/FormElements/Form';
 import {
   blurErrors,
@@ -17,6 +10,9 @@ import {
   reset,
 } from '../features/auth/authSlice';
 import useAuth from '../hooks/useAuth';
+import useFormValidation from '../hooks/useFormValidation';
+import PageId from '../interfaces/enums';
+import { PageProps } from '../interfaces/interfaces';
 import { BlurEventType } from '../interfaces/types';
 
 const AuthPage: FC<PageProps> = ({ id, title }) => {
