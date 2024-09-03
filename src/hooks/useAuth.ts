@@ -1,16 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
+import type { User } from '../features/auth/authSlice'; // Explicit import of the User type
 import { currentUser, selectUser } from '../features/auth/authSlice';
 
-const useAuth = () => {
+const useAuth = (): {
+  isAuthenticated: boolean;
+  isError: any;
+  isLoading: boolean;
+  user: User | null;
+} => {
   const { user, isLoading, isError, isAuthenticated } =
     useAppSelector(selectUser);
 
   const dispatch = useAppDispatch();
+
+  const isCurrentUserFetched = useRef(false);
+
   useEffect(() => {
-    dispatch(currentUser());
+    if (!isCurrentUserFetched.current) {
+      dispatch(currentUser());
+      isCurrentUserFetched.current = true;
+    }
   }, []);
 
   return { user, isLoading, isError, isAuthenticated };
 };
+
 export default useAuth;

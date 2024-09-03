@@ -1,13 +1,13 @@
 /* eslint-disable no-underscore-dangle */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 import { KeyValuePair } from '../../interfaces/interfaces';
-import errorObj from '../../utils/utils';
-import { signupUrl, loginUrl, logoutUrl, userUrl } from '../../utils/endpoints';
+import { loginUrl, logoutUrl, signupUrl, userUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
+import errorObj from '../../utils/utils';
 
-interface User {
+export interface User {
   _id: string;
   createdAt: string;
   email: string;
