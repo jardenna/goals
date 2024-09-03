@@ -1,5 +1,11 @@
 import { FC } from 'react';
-import { InputProps } from '../../interfaces/form';
+import { BlurEventType, ChangeInputType } from '../../interfaces/events';
+import { InputListProps } from '../../interfaces/form';
+
+interface InputProps extends InputListProps {
+  onChange: (e: ChangeInputType) => void;
+  onBlur?: (e: BlurEventType) => void;
+}
 
 const Input: FC<InputProps> = ({
   type,
@@ -31,7 +37,7 @@ const Input: FC<InputProps> = ({
       {label} {isRequired && <span className="required" />}
     </label>
 
-    {error && <div>{error}</div>}
+    {error && <span>{error}</span>}
   </div>
 );
 

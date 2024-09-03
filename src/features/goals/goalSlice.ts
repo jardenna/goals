@@ -1,19 +1,21 @@
-/* eslint-disable consistent-return */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-
-import { GoalErrorState, goalErrObj } from '../../utils/utils';
 import { KeyValuePair } from '../../interfaces/interfaces';
 import { goalsUrl } from '../../utils/endpoints';
 import fetchApi from '../../utils/fetchApi';
+import { goalErrObj } from '../../utils/utils';
 
-interface goals {
+interface GoalErrorState {
+  text: string;
+}
+
+interface Goals {
   _id: string;
   text: string;
   title: string;
 }
 interface GoalsState {
-  goals: goals[];
+  goals: Goals[];
   isError: GoalErrorState;
   isLoading: boolean;
 }
@@ -25,7 +27,6 @@ const initialState = {
 } as GoalsState;
 
 // Get goals
-
 export const getGoals = createAsyncThunk(
   'goals/getGoals',
   async (_, thunkAPI) => {
@@ -34,6 +35,7 @@ export const getGoals = createAsyncThunk(
     if (token.auth.isAuthenticated) {
       return response;
     }
+    return null;
   },
 );
 
@@ -46,6 +48,7 @@ export const createGoals = createAsyncThunk(
     if (token.auth.isAuthenticated) {
       return response;
     }
+    return null;
   },
 );
 
@@ -68,7 +71,6 @@ export const goalSlice = createSlice({
         state.isLoading = false;
         state.goals = action.payload;
       })
-
       .addCase(createGoals.pending, (state) => {
         state.isLoading = true;
       })

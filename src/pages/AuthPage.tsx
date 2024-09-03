@@ -5,9 +5,9 @@ import { useAppDispatch } from '../app/hooks';
 
 import useFormValidation from '../hooks/useFormValidation';
 
+import PageId from '../interfaces/enums';
 import { InputListProps } from '../interfaces/form';
 import { PageProps } from '../interfaces/interfaces';
-import PageId from '../types/types';
 
 import Form from '../components/FormElements/Form';
 import {

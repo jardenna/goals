@@ -1,7 +1,24 @@
 import { FC, Fragment } from 'react';
-import { FormProps } from '../../interfaces/form';
+import {
+  BlurEventType,
+  ChangeInputType,
+  FormEventType,
+} from '../../interfaces/events';
+import { InputListProps } from '../../interfaces/form';
 import Button from '../Button';
 import Input from './Input';
+
+interface FormProps {
+  btnText: string;
+  inputs: InputListProps[];
+  onChange: (e: ChangeInputType) => void;
+  onSubmit: (e: FormEventType) => void;
+  btnVaiant?: string;
+  className?: string;
+  onBlur?: (e: BlurEventType) => void;
+  onClearAll?: () => void;
+  showResetButton?: boolean;
+}
 
 const Form: FC<FormProps> = ({
   btnVaiant = 'primary',
