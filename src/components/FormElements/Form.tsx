@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 import {
   BlurEventType,
   ChangeInputType,
@@ -45,10 +45,11 @@ const Form: FC<FormProps> = ({
   onBlur,
 }) => (
   <form onSubmit={onSubmit} noValidate className={className}>
-    {inputs.map((input) => (
-      <Fragment key={input.inputIdentifier}>
-        {!input.hidden && (
+    {inputs.map(
+      (input) =>
+        !input.hidden && (
           <Input
+            key={input.inputIdentifier}
             type={input.type}
             name={input.name}
             value={input.value}
@@ -60,10 +61,8 @@ const Form: FC<FormProps> = ({
             checked={input.checked}
             onBlur={onBlur}
           />
-        )}
-      </Fragment>
-    ))}
-
+        ),
+    )}
     <footer className="form-footer">
       <Button type="submit" className={`btn-${btnVaiant}`} btnText={btnText} />
       {showResetButton && (

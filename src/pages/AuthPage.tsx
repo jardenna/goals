@@ -99,13 +99,14 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
       hidden: id === PageId.Login,
     },
   ];
+
   const onBlur = (e: BlurEventType) => {
     const { name } = e.target;
     dispatch(blurErrors(name));
   };
 
   return (
-    <article>
+    <section>
       <h1>{title}</h1>
       {isError?.noUser}
       <Form
@@ -117,7 +118,7 @@ const AuthPage: FC<PageProps> = ({ id, title }) => {
         onBlur={onBlur}
       />
       {!isAuthenticated && <NavLink to="/register">Register</NavLink>}
-    </article>
+    </section>
   );
 };
 

@@ -48,15 +48,14 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/logout', async () => {
   const response = await fetchApi('get', logoutUrl);
-
   return response;
 });
 
 export const currentUser = createAsyncThunk('auth/user', async () => {
   const response = await fetchApi('get', userUrl);
-
   return response;
 });
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,

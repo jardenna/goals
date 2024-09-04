@@ -9,11 +9,9 @@ const useAuth = (): {
   isLoading: boolean;
   user: User | null;
 } => {
+  const dispatch = useAppDispatch();
   const { user, isLoading, isError, isAuthenticated } =
     useAppSelector(selectUser);
-
-  const dispatch = useAppDispatch();
-
   const isCurrentUserFetched = useRef(false);
 
   useEffect(() => {

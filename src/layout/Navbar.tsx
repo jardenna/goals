@@ -40,6 +40,7 @@ const Navbar = () => {
   const logoutUser = () => {
     dispatch(logout());
   };
+
   const authLinks = (
     <>
       <li className="nav-item flex-item">
