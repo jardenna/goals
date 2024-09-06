@@ -77,12 +77,7 @@ const Protected = () => {
 
       <div className="card-container">
         {goals.map((goal) => (
-          <Card
-            key={goal._id}
-            id={goal._id}
-            content={goal.text}
-            title={goal.title}
-          />
+          <Card key={goal._id} content={goal.text} title={goal.title} />
         ))}
       </div>
     </article>
